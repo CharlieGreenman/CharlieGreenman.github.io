@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Megrim" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+  <title>Razroo</title>
+  <link href="css/main.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/tile.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/canvas.js"></script>
+</head>
+<body>
+  <div id="top_menu">
+    <nav>
+      <ul>
+        <li><a href="index.html">
+            <span> H </span>
+            om<span>e</span></a></li>
+        <li><a href="about.html">
+            <span> A </span>
+            bout</a></li>
+        <li>
+          <p>Razroo</p>
+        </li>
+        <li><a href="index.html">
+            <span> p </span>
+            ortfolio</a></li>
+        <li><a href="index.html">
+            <span> C </span>
+            ontact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="phrase_bar">
+    <p> Design with Character</p>
+  </div>
+  <div id="window">
+    <canvas id="canvas1" width="500" height="500"></canvas>
+  </div>
+  <div id="wall"></div>
+  <div id="floor_background"></div>
+  <div class="main_container">
+    <div id="clock">
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><span> Temp</span><span>69.5</span></p>
+    </div>
+    <div id="pole_left">
+      <div class="pole"></div>
+      <div class="bulb"></div>
+    </div>
+    <div id="pole_right">
+      <div class="pole"></div>
+      <div class="bulb"></div>
+    </div>
+    <div class="mac first">
+      <div class="button design"><span> Design</span></div>
+    </div>
+    <div class="mac second">
+      <div class="button develop"><span> Develop</span></div>
+    </div>
+    <div id="cup_holder_container">
+      <div id="cup_holder">
+        <div id="pencil">
+          <div class="eraser"></div>
+          <div class="metal"></div>
+        </div>
+        <div id="pen"></div>
+        <div id="ruler"></div>
+      </div>
+    </div>
+    <div id="foot1"></div>
+    <div id="foot1b"></div>
+    <div id="foot2"></div>
+    <div id="cup_container">
+      <div id="steam">
+        <svg>
+          <rect x="32.881" y="31" fill="#F5F5F5" width="6.576" height="0">
+            <animate attributename="y" from="31" to="10" dur="8s" repeatcount="indefinite"></animate>
+            <animate attributename="height" from="26" to="10" dur="8s" repeatcount="indefinite"></animate>
+            <animate attributename="opacity" from="1" to="0" dur="8s" repeatcount="indefinite"></animate>
+          </rect>
+          <rect x="59.186" fill="#F5F5F5" width="6.576" height="0">
+            <animate attributename="y" from="25" to="-10" dur="8s" repeatcount="indefinite" begin="1s"></animate>
+            <animate attributename="height" from="26" to="10" dur="8s" repeatcount="indefinite" begin="1s"></animate>
+            <animate attributename="opacity" from="1" to="0" dur="8s" repeatcount="indefinite" begin="1s"></animate>
+          </rect>
+          <rect x="85.49" y="31" fill="#F5F5F5" width="6.576" height="0">
+            <animate attributename="y" from="25" to="0" dur="8s" repeatcount="indefinite" begin="2.5s"></animate>
+            <animate attributename="height" from="26" to="10" dur="8s" repeatcount="indefinite" begin="2.5s"></animate>
+            <animate attributename="opacity" from="1" to="0" dur="8s" repeatcount="indefinite" begin="2.5s"></animate>
+          </rect>
+        </svg>
+      </div>
+      <div id="cup"></div>
+      <div id="cup_handle"></div>
+      <div id="coaster"></div>
+    </div>
+    <div id="desk_container">
+      <div id="desk_top"></div>
+      <div class="desk_left">
+        <div class="knob one"></div>
+      </div>
+      <div class="desk_middle">
+        <div class="knob two"></div>
+        <div id="human">
+          <div id="head"></div>
+          <div id="body"></div>
+          <div id="legs"></div>
+        </div>
+        <div id="chair"></div>
+        <div id="coke_machine"></div>
+      </div>
+      <div class="desk_right">
+        <div id="top_drawer">
+          <div class="knob three"></div>
+        </div>
+        <div id="bottom_drawer">
+          <div class="knob four"></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot one"></div>
+    <div class="foot two"></div>
+    <div class="foot three"></div>
+    <div class="foot four"></div>
+    <div id="floor">
+      <div class="tile1_short"></div>
+      <div class="tile2_long"></div>
+    </div>
+  </div>
+  <div class="phrase_bar bottom">
+    <p>If it doesn<span>'</span>t have the Kangaroo<span>,</span>it<span>'</span>s not Razroo<span>!</span></p>
+  </div>
+  <footer>
+    <div id="brick_wall">
+      <div id="bw_container"></div>
+    </div>
+  </footer>
+</body>

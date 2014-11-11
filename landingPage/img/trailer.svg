@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 400 200" enable-background="new 0 0 400 200" xml:space="preserve">
+<g id="background">
+</g>
+<g id="truck_x5F_body">
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="101.5" y1="100" x2="298.5" y2="100">
+		<stop  offset="0" style="stop-color:#FF0000"/>
+		<stop  offset="1" style="stop-color:#FF0000"/>
+	</linearGradient>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="100" y1="100" x2="300" y2="100">
+		<stop  offset="0" style="stop-color:#FF0000"/>
+		<stop  offset="1" style="stop-color:#FF0000"/>
+	</linearGradient>
+	
+		<rect x="101.5" y="81.5" fill="url(#SVGID_1_)" stroke="url(#SVGID_2_)" stroke-width="3" stroke-miterlimit="10" width="197" height="37"/>
+</g>
+<g id="truck_x5F_sep">
+	<rect x="100" y="120" width="200" height="1"/>
+</g>
+<g id="tlb">
+	<g>
+		<g>
+			<g>
+				<path fill="#424C51" d="M293.3,121c2.5,1.2,4.4,3.4,5.2,6h21.9c0.8-2.6,2.7-4.8,5.2-6H293.3z"/>
+				<path fill="#424C51" d="M263.7,121H155.3c2.5,1.2,4.4,3.4,5.2,6h97.9C259.3,124.4,261.2,122.2,263.7,121z"/>
+				<path fill="#424C51" d="M146.7,121h-12.3c2.5,1.2,4.4,3.4,5.2,6h1.9C142.3,124.4,144.2,122.2,146.7,121z"/>
+				<path fill="#424C51" d="M334.3,121c2.5,1.2,4.4,3.4,5.2,6h5.5v-6H334.3z"/>
+				<path fill="#424C51" d="M284.7,121h-12.3c2.5,1.2,4.4,3.4,5.2,6h1.9C280.3,124.4,282.2,122.2,284.7,121z"/>
+				<path fill="#424C51" d="M125.7,121H100v6h20.5C121.3,124.4,123.2,122.2,125.7,121z"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g id="metal_x5F_back">
+</g>
+<g id="truck_x5F_head">
+	<polygon fill="#B4FC03" points="345,121 305,121 305,91 345,101 	"/>
+	<polygon fill="#B4FC03" points="331,107.5 305,107.5 305,80.5 326,87.7 	"/>
+</g>
+<g id="wheels">
+	<circle fill="#404040" cx="151" cy="130" r="8.5"/>
+	<circle cx="151" cy="130" r="3.4"/>
+	<circle fill="#404040" cx="130" cy="130" r="8.5"/>
+	<circle cx="130" cy="130" r="3.4"/>
+	<circle fill="#404040" cx="268" cy="130" r="8.5"/>
+	<path d="M271.4,129.5c0.4,2.3-1.6,4.2-3.9,3.9c-1.4-0.2-2.6-1.4-2.8-2.8c-0.4-2.3,1.6-4.2,3.9-3.9C270,126.9,271.1,128,271.4,129.5
+		z"/>
+	<circle fill="#404040" cx="289" cy="130" r="8.5"/>
+	<circle cx="289" cy="130" r="3.4"/>
+	<circle fill="#404040" cx="330" cy="130" r="8.5"/>
+	<circle cx="330" cy="130" r="3.4"/>
+</g>
+<g id="exhaust_x5F_pipe">
+	<path fill="#FC003C" d="M305,87h-2V75c0-1.1,0.9-2,2-2l0,0V87z"/>
+	<rect x="302.5" y="86.5" fill="#4E5143" width="3" height="35"/>
+</g>
+<g id="grill">
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="342" y1="104.5" x2="345" y2="104.5"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="342" y1="109.5" x2="345" y2="109.5"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="342" y1="114.5" x2="345" y2="114.5"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="342" y1="119.5" x2="345" y2="119.5"/>
+</g>
+<g id="Razroo">
+	<text transform="matrix(1 0 0 1 133.989 106.2625)" fill="#FFFFFF" font-family="'AndaleMono'" font-size="20">R A Z R O O</text>
+</g>
+</svg>

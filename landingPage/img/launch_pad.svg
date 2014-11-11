@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 400" enable-background="new 0 0 300 400" xml:space="preserve">
+<g id="background">
+</g>
+<g id="base">
+	<polygon fill="#D9D9D9" points="270,350 90,350 110,330 250,330 	"/>
+</g>
+<g id="side_x5F_bars">
+	<rect x="230" y="149.5" fill="#D9D9D9" width="20" height="181"/>
+</g>
+<g id="launch_x5F_bar">
+	<polygon fill="#FFFFFF" points="229.5,178.2 214.5,178.2 204.5,168.2 229.5,168.2 	"/>
+</g>
+<g id="metal_x5F_bars_x5F_lr">
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="170" x2="250" y2="150"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="190" x2="250" y2="170"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="210" x2="250" y2="190"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="230" x2="250" y2="210"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="250" x2="250" y2="230"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="270" x2="250" y2="250"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="290" x2="250" y2="270"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="310" x2="250" y2="290"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="230" y1="330" x2="250" y2="310"/>
+</g>
+<g id="metal_x5F_bar_x5F_rl">
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="330" x2="230" y2="310"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="310" x2="230" y2="290"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="290" x2="230" y2="270"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="270" x2="230" y2="250"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="250" x2="230" y2="230"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="230" x2="230" y2="210"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="210" x2="230" y2="190"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="190" x2="230" y2="170"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="250" y1="170" x2="230" y2="150"/>
+</g>
+<g id="radio_x5F_tower">
+	<path fill="#D9D9D9" d="M250,151h-20l0,0c4-13.3,6.3-26.9,7-40.8l0-59.2h6l0,59C243.6,123.9,246,137.7,250,151L250,151z"/>
+</g>
+</svg>

@@ -1,0 +1,1479 @@
+/* line 5, ../sass/_clock.scss */
+#clock {
+  position: absolute;
+  width: 90px;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 759px;
+  background-color: #9ba38b;
+  border: 10px solid black;
+  box-shadow: 0 0 0 10px silver;
+  border-radius: 15%;
+  font-family: Digital;
+}
+/* line 16, ../sass/_clock.scss */
+#clock p:nth-child(1) {
+  width: 90px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+  letter-spacing: 2px;
+}
+/* line 25, ../sass/_clock.scss */
+#clock p:nth-child(1) span {
+  font-size: 11px;
+}
+/* line 29, ../sass/_clock.scss */
+#clock p:nth-child(2) {
+  float: left;
+  text-align: center;
+  width: 40%;
+  font-size: 11px;
+  border-right: 1px solid black;
+}
+/* line 35, ../sass/_clock.scss */
+#clock p:nth-child(2) span {
+  float: left;
+  text-align: center;
+  font-size: 6px;
+}
+/* line 39, ../sass/_clock.scss */
+#clock p:nth-child(2) span:nth-child(1) {
+  margin-left: 1px;
+}
+/* line 42, ../sass/_clock.scss */
+#clock p:nth-child(2) span:nth-child(2) {
+  margin-left: 5px;
+}
+/* line 47, ../sass/_clock.scss */
+#clock p:nth-child(3) {
+  float: left;
+  width: 33%;
+  height: 18px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1px;
+  border-right: 1px solid black;
+}
+/* line 55, ../sass/_clock.scss */
+#clock p:nth-child(3) span {
+  float: left;
+  margin: 0 10px;
+  font-size: 6px;
+  line-height: 6px;
+}
+/* line 62, ../sass/_clock.scss */
+#clock p:nth-child(4) {
+  text-align: center;
+  float: left;
+  width: 24%;
+  font-size: 11px;
+}
+/* line 67, ../sass/_clock.scss */
+#clock p:nth-child(4) span:nth-child(1) {
+  margin: 0px 5px;
+  float: left;
+  font-size: 6px;
+}
+
+/* line 5, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.0.alpha.20/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/_about.scss */
+#sign_container {
+  float: left;
+  height: 613px;
+  width: 220px;
+}
+
+/* line 7, ../sass/_about.scss */
+#sign {
+  margin-top: -25px;
+  font-family: 'Voltaire', sans-serif;
+  color: #222;
+}
+/* line 11, ../sass/_about.scss */
+#sign:before, #sign:after {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+/* line 17, ../sass/_about.scss */
+#sign > a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.8em;
+  text-transform: UPPERCASE;
+  transform-origin: 0 0;
+  -moz-transform: matrix(1, -0.4, 0, 1.2, 0, 100);
+  -ms-transform: matrix(1, -0.4, 0, 1.2, 0, 100);
+  -webkit-transform: matrix(1, -0.4, 0, 1.2, 0, 100);
+  transform: matrix(1, -0.4, 0, 1.2, 0, 100);
+  padding: .2em;
+  margin-bottom: .3em;
+  transition: .5s background;
+}
+/* line 28, ../sass/_about.scss */
+#sign > a:nth-of-type(even) {
+  border-right: 6px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+/* line 33, ../sass/_about.scss */
+#sign > a:nth-of-type(odd) {
+  border-left: 6px solid;
+}
+/* line 36, ../sass/_about.scss */
+#sign > a:hover, #sign > a:focus {
+  background: #222;
+  color: #fde57c;
+  border-color: #222;
+}
+
+/* line 44, ../sass/_about.scss */
+.home {
+  font-size: 3em;
+}
+
+/* line 48, ../sass/_about.scss */
+#sign_holder {
+  float: left;
+  height: 300px;
+  width: 10px;
+  margin: 23px 0px 0px 110px;
+  background-color: black;
+  box-shadow: 0px 0px 2px 2px inset white;
+  -moz-transform: matrix(1, -0.4, 0, 1.2, 0, 100);
+  -ms-transform: matrix(1, -0.4, 0, 1.2, 0, 100);
+  -webkit-transform: matrix(1, -0.4, 0, 1.2, 0, 100);
+  transform: matrix(1, -0.4, 0, 1.2, 0, 100);
+}
+
+/* line 58, ../sass/_about.scss */
+.content_container {
+  float: left;
+  width: 700px;
+  height: 600px;
+  background: white;
+  margin: 75px 0 0 20px;
+}
+
+/* line 3, ../sass/_stick_figure.scss */
+#human {
+  position: absolute;
+  margin-left: 150px;
+  margin-top: -250px;
+  width: 300px;
+  height: 300px;
+}
+
+/* line 11, ../sass/_stick_figure.scss */
+#head {
+  float: left;
+  clear: both;
+  height: 150px;
+  width: 150px;
+  margin: 20px 0 0 78px;
+  background-color: green;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* line 20, ../sass/_stick_figure.scss */
+#body {
+  float: left;
+  clear: both;
+  height: 200px;
+  width: 6px;
+  background: black;
+  margin-left: 149px;
+}
+/* line 27, ../sass/_stick_figure.scss */
+#body:before {
+  content: "";
+  margin-top: -50px;
+  margin-left: -60px;
+  float: left;
+  height: 300px;
+  width: 6px;
+  background: black;
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+/* line 37, ../sass/_stick_figure.scss */
+#body:after {
+  content: "";
+  float: left;
+  margin-top: -50px;
+  margin-left: 75px;
+  height: 300px;
+  width: 6px;
+  background: black;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* line 51, ../sass/_stick_figure.scss */
+#legs:before {
+  content: "";
+  float: left;
+  margin-left: 130px;
+  margin-top: -8px;
+  height: 55px;
+  width: 2px;
+  background-color: black;
+  clear: left;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 62, ../sass/_stick_figure.scss */
+#legs:after {
+  content: "";
+  float: left;
+  margin-top: -8px;
+  margin-left: 36px;
+  height: 55px;
+  width: 2px;
+  background-color: black;
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+/* line 2, ../sass/_wall.scss */
+#wall {
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  margin-top: 510px;
+  z-index: -3;
+  background: -moz-linear-gradient(270deg, #000000 0px, #000000 20px, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 260px, #ffffff 260px, #ffffff 280px, #ffff00 285px, rgba(0, 0, 0, 0) 300px), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAa0lEQVQYV2NkgIKmQ37/6+w2MYK4xpnX/h9piWDgFL4E54MZhBSdna7FyEiMIpBhYBNxWQcyCWYjTjchKwK5nRGbw9EVga3+/lbvP7LvsCkCGYbiRlyKdtW2QDwD0oFPkbDUMogbCSkCGQYAka1/qtkEIQkAAAAASUVORK5CYII=);
+  background: -webkit-linear-gradient(270deg, #000000 0px, #000000 20px, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 260px, #ffffff 260px, #ffffff 280px, #ffff00 285px, rgba(0, 0, 0, 0) 300px), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAa0lEQVQYV2NkgIKmQ37/6+w2MYK4xpnX/h9piWDgFL4E54MZhBSdna7FyEiMIpBhYBNxWQcyCWYjTjchKwK5nRGbw9EVga3+/lbvP7LvsCkCGYbiRlyKdtW2QDwD0oFPkbDUMogbCSkCGQYAka1/qtkEIQkAAAAASUVORK5CYII=);
+  background: linear-gradient(180deg, #000000 0px, #000000 20px, rgba(0, 0, 0, 0) 20px, rgba(0, 0, 0, 0) 260px, #ffffff 260px, #ffffff 280px, #ffff00 285px, rgba(0, 0, 0, 0) 300px), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAa0lEQVQYV2NkgIKmQ37/6+w2MYK4xpnX/h9piWDgFL4E54MZhBSdna7FyEiMIpBhYBNxWQcyCWYjTjchKwK5nRGbw9EVga3+/lbvP7LvsCkCGYbiRlyKdtW2QDwD0oFPkbDUMogbCSkCGQYAka1/qtkEIQkAAAAASUVORK5CYII=);
+}
+
+/***************************
+ 2. Body + fonts
+***************************/
+/* line 14, ../sass/main.scss */
+body {
+  height: 100%;
+  width: 100%;
+}
+
+@font-face {
+  font-family: Old_Londen;
+  src: url(../flots.ttf);
+}
+@font-face {
+  font-family: Digital;
+  src: url(../digital-7.ttf);
+}
+@font-face {
+  font-family: LokiCola;
+  src: url(../LOKICOLA.TTF);
+}
+/**************************
+  3. Top Menu
+ *************************/
+/* line 14, ../sass/_menu.scss */
+#top_menu {
+  width: 100%;
+  height: 75px;
+  font-size: 20px;
+  font-family: 'Megrim', cursive;
+  font-weight: 300;
+  background: linear-gradient(180deg, #d3d3d3 0%, #000000 100%);
+  /* brace for nav */
+}
+/* line 25, ../sass/_menu.scss */
+#top_menu nav {
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* brace for ul */
+}
+/* line 30, ../sass/_menu.scss */
+#top_menu nav span {
+  font-weight: 700;
+}
+/* line 33, ../sass/_menu.scss */
+#top_menu nav ul {
+  clear: left;
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 50%;
+  text-align: center;
+  /* brace for li */
+}
+/* line 43, ../sass/_menu.scss */
+#top_menu nav ul li {
+  display: block;
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  right: 50%;
+  text-align: center;
+  height: 75px;
+  line-height: 75px;
+  width: 174px;
+  box-shadow: inset 0  8px 8px -8px black, inset 0 -8px 8px -8px black;
+  opacity: 0.5;
+  background: -webkit-repeating-linear-gradient(90deg, transparent 0px, transparent 27px, #cccccc 27px, black 29px);
+  background: -o-repeating-linear-gradient(90deg, transparent 0px, transparent 25px, black 25px, black 26px, #cccccc 27px, #cccccc 28px, black 29px, black 30px);
+  /* For Opera 11.6 to 12.0 */
+  background: -moz-repeating-linear-gradient(90deg, transparent 0px, transparent 25px, black 25px, black 26px, #cccccc 27px, #cccccc 28px, black 29px, black 30px);
+  /* For Firefox 3.6 to 15 */
+  background: repeating-linear-gradient(90deg, transparent 0px, transparent 28px, black 28px, black 29px), linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0) 80%, #000000 100%);
+  /* brace for p:hover */
+}
+/* line 84, ../sass/_menu.scss */
+#top_menu nav ul li:nth-child(1) {
+  background-color: #8cbf26;
+}
+/* line 87, ../sass/_menu.scss */
+#top_menu nav ul li:nth-child(2) {
+  background-color: #1ba1e2;
+}
+/* line 90, ../sass/_menu.scss */
+#top_menu nav ul li:nth-child(3) {
+  background-color: #339933;
+}
+/* line 93, ../sass/_menu.scss */
+#top_menu nav ul li:nth-child(4) {
+  background-color: #a200ff;
+}
+/* line 96, ../sass/_menu.scss */
+#top_menu nav ul li:nth-child(5) {
+  background-color: #f09609;
+}
+/* line 99, ../sass/_menu.scss */
+#top_menu nav ul li p:hover {
+  transition: 1s;
+  box-shadow: inset 0 0 0 3px rgba(0, 255, 0, 0.5);
+  border-radius: 45px;
+  color: white;
+}
+/* line 105, ../sass/_menu.scss */
+#top_menu nav ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  transition: 1s;
+}
+/* line 111, ../sass/_menu.scss */
+#top_menu nav ul li a:hover {
+  letter-spacing: 4px;
+  color: lightgoldenrodyellow;
+}
+
+/*****************
+  4. Phrase Bar
+  ***************/
+/* line 39, ../sass/main.scss */
+.phrase_bar {
+  position: absolute;
+  height: 25px;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+/* line 45, ../sass/main.scss */
+.phrase_bar p {
+  text-align: center;
+  font-family: Old_Londen;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 3px;
+  margin-left: 15px;
+}
+/* line 55, ../sass/main.scss */
+.phrase_bar span {
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* line 60, ../sass/main.scss */
+.phrase_bar.bottom {
+  margin-top: -3px;
+}
+
+/*
+ * 4. window background
+*/
+/* line 73, ../sass/main.scss */
+#canvas1 {
+  width: 100%;
+}
+
+/* line 77, ../sass/main.scss */
+#window {
+  position: absolute;
+  height: 500px;
+  width: 100% !important;
+  margin-top: 16px;
+  z-index: -2;
+  background-size: 100% 100% !important;
+  opacity: 0.5;
+  background: -moz-linear-gradient(270deg, #87cefa, #ffffff);
+  background: -webkit-linear-gradient(270deg, #87cefa, #ffffff);
+  background: linear-gradient(180deg, #87cefa, #ffffff);
+ /* &:before {
+  content: "";
+  position: absolute;
+  height: 510px;
+  width: 100%;
+  z-index: -1;
+@include background(linear-gradient(180deg,
+    $side_pane 0%, $side_pane 5%,
+    $window 5%, $window 11%,
+    $thin_pane 11%, $thin_pane 11.5%,
+    $window 11.5%, $window 18%,
+    $thin_pane 18%, $thin_pane 18.5%,
+    $window 18.5%, $window 25%,
+    $thin_pane 25%, $thin_pane 25.5%,
+    $window 25.5%, $window 32%,
+    $thick_pane 32%, $thick_pane 36%,
+    $window 36%, $window 42%,
+    $thin_pane 42%, $thin_pane 42.5%,
+    $window 42.5%, $window 49%,
+    $thin_pane 49%, $thin_pane 49.5%,
+    $window 49.5%, $window 56%,
+    $thin_pane 56%, $thin_pane 56.5%,
+    $window 56.5%, $window 63%,
+    $thick_pane 63%, $thick_pane 68%,
+    $window 68%, $window 74%,
+    $thin_pane 74%, $thin_pane 74.5%,
+    $window 74.5%, $window 81%,
+    $thin_pane 81%, $thin_pane 81.5%,
+    $window 81.5%, $window 88%,
+    $thin_pane 88%, $thin_pane 88.5%,
+    $window 88.5%, $window 95%,
+    $side_pane 95%, $side_pane 100%
+    ));
+}
+  &:after {
+    content: "";
+    position: absolute;
+    height: 510px;
+    width: 100%;
+    z-index: -2;
+    @include background(linear-gradient(270deg,
+      $side_pane 0%, $side_pane 5%,
+      $window 5%, $window 11%,
+      $thin_pane 11%, $thin_pane 11.5%,
+      $window 11.5%, $window 18%,
+      $thin_pane 18%, $thin_pane 18.5%,
+      $window 18.5%, $window 25%,
+      $thin_pane 25%, $thin_pane 25.5%,
+      $window 25.5%, $window 32%,
+      $thick_pane 32%, $thick_pane 36%,
+      $window 36%, $window 42%,
+      $thin_pane 42%, $thin_pane 42.5%,
+      $window 42.5%, $window 49%,
+      $thin_pane 49%, $thin_pane 49.5%,
+      $window 49.5%, $window 56%,
+      $thin_pane 56%, $thin_pane 56.5%,
+      $window 56.5%, $window 63%,
+      $thick_pane 63%, $thick_pane 68%,
+      $window 68%, $window 74%,
+      $thin_pane 74%, $thin_pane 74.5%,
+      $window 74.5%, $window 81%,
+      $thin_pane 81%, $thin_pane 81.5%,
+      $window 81.5%, $window 88%,
+      $thin_pane 88%, $thin_pane 88.5%,
+      $window 88.5%, $window 95%,
+      $side_pane 95%, $side_pane 100%
+    ));
+  }*/
+}
+
+/* line 159, ../sass/main.scss */
+#floor_background {
+  position: absolute;
+  height: 250px;
+  width: 100%;
+  margin-top: 810px;
+  z-index: -2;
+  background-color: #a2a079;
+  background: repeating-radial-gradient(100% 100%, lightblue 0px, white 25px);
+}
+
+/******************************
+  4. Main Container
+ ******************************/
+/* line 173, ../sass/main.scss */
+.main_container {
+  margin: 0 auto 0px auto;
+  padding-top: 20px;
+  width: 940px;
+  height: 1000px;
+  /* got the above code from stack overflow */
+}
+/* line 180, ../sass/main.scss */
+.main_container.about {
+  margin-top: -150px;
+}
+
+/**************************
+  Right and left sound-bar
+  ************************/
+/* line 4, ../sass/_sound_bar.scss */
+.sound_bar {
+  float: left;
+  height: 246px;
+  width: 50px;
+  margin-top: 125px;
+  border: 3px solid black;
+  box-shadow: 0px 0px 0px 3px grey;
+  background-color: #FFF5EE;
+  background-image: -moz-linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0));
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0));
+}
+/* line 13, ../sass/_sound_bar.scss */
+.sound_bar.left {
+  margin-left: 74px;
+}
+/* line 16, ../sass/_sound_bar.scss */
+.sound_bar.design {
+  height: 350px;
+  border-top: 5px solid white;
+  border-right: 5px solid #40d716;
+  /* from the green pallete */
+  border-bottom: 5px solid #6465fd;
+  /* from the blue pallete */
+  border-left: 5px solid #dc0000;
+  /* from the red Hemsey */
+  display: none;
+}
+/* line 24, ../sass/_sound_bar.scss */
+.sound_bar.develop {
+  height: 350px;
+  display: none;
+}
+
+/* line 29, ../sass/_sound_bar.scss */
+.speaker {
+  float: left;
+  height: 1px;
+  width: 1px;
+  margin: 0px 15px 0px 21px;
+  border-radius: 90px;
+  background-color: black;
+  padding: 3px;
+  box-shadow: 0px 0px 3px 5px white, 0px 0px 3px 10px black, 0px 0px 3px 10px white,  0px 0px 5px 15px black;
+}
+/* line 38, ../sass/_sound_bar.scss */
+.speaker.top {
+  margin-top: 40px;
+}
+/* line 41, ../sass/_sound_bar.scss */
+.speaker.bottom {
+  margin-top: 158px;
+}
+
+/* line 4, ../sass/_light.scss */
+.pole {
+  position: absolute;
+  height: 245px;
+  width: 10px;
+  margin-top: -155px;
+  margin-left: 25px;
+  background-color: black;
+}
+
+/* line 13, ../sass/_light.scss */
+.bulb {
+  position: absolute;
+  height: 40px;
+  width: 30px;
+  margin: 90px 0px 0px 15px;
+  border-top-right-radius: 25%;
+  border-top-left-radius: 25%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background: repeating-linear-gradient(180deg, black 0%, yellow 4%);
+  -moz-box-shadow: 0 0 80px 0 yellow;
+  -webkit-box-shadow: 0 0 80px 0 yellow;
+  box-shadow: 0 0 80px 0 yellow;
+}
+
+/* line 29, ../sass/_light.scss */
+#pole_left {
+  position: fixed;
+}
+
+/* line 33, ../sass/_light.scss */
+#pole_right {
+  position: fixed;
+  margin-left: 880px;
+}
+
+/*********************
+  5. Razroo_Logo
+  *******************/
+/* line 193, ../sass/main.scss */
+#razroo_logo {
+  position: absolute;
+  margin-top: -110px;
+  margin-left: 440px;
+}
+
+/*********************
+  4. flippy
+  *******************/
+/* line 203, ../sass/main.scss */
+.flip_container {
+  float: left;
+  height: 360px;
+  width: 125px;
+  border-top: 5px solid white;
+  border-right: 5px solid #40d716;
+  /* from the green pallete */
+  border-bottom: 5px solid #6465fd;
+  /* from the blue pallete */
+  border-left: 5px solid #dc0000;
+  /* from the red Hemsey */
+  border-radius: 11px;
+  box-shadow: 0px 0px 0px 6px black inset;
+  /* code for animations */
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
+}
+
+/* line 222, ../sass/main.scss */
+.flipper {
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  position: relative;
+}
+
+/******************************
+  4. Colorful Slider Container
+ ******************************/
+/* line 7, ../sass/_mac.scss */
+.mac {
+  float: left;
+  height: 180px;
+  width: 320px;
+  border: 10px solid black;
+  border-radius: 20px;
+  background-color: cadetblue;
+  -moz-box-shadow: 0px 40px 0px 0px #c2c3c5;
+  -webkit-box-shadow: 0px 40px 0px 0px #c2c3c5;
+  box-shadow: 0px 40px 0px 0px #c2c3c5;
+  margin: 179px 0 0 0;
+  border-bottom: 30px solid black;
+  overflow: hidden;
+}
+/* line 18, ../sass/_mac.scss */
+.mac.first {
+  margin-left: 130px;
+}
+
+/********************
+ 5C. Middle_section
+ ******************/
+/* line 27, ../sass/_mac.scss */
+.mac_fill {
+  float: left;
+  height: 180px;
+  width: 320px;
+}
+
+/*************************
+ ?? Middle Column overlay
+ *************************/
+/* line 40, ../sass/_mac.scss */
+.middle_column_overlay {
+  color: white;
+  font-size: 20px;
+  box-shadow: 5px black;
+  background-color: blue;
+  line-height: 200px;
+}
+
+/*************************
+  7. Mac stand
+  ***********************/
+/* line 51, ../sass/_mac.scss */
+#foot1 {
+  float: left;
+  clear: both;
+  margin-top: 40px;
+  margin-left: 405px;
+  width: 130px;
+  height: 60px;
+  background: darkgray;
+  background: -moz-linear-gradient(270deg, #a9a9a9 0%, #a9a9a9 32%, #808080 50%, #a9a9a9 68%, #a9a9a9 100%);
+  background: -webkit-linear-gradient(270deg, #a9a9a9 0%, #a9a9a9 32%, #808080 50%, #a9a9a9 68%, #a9a9a9 100%);
+  background: linear-gradient(180deg, #a9a9a9 0%, #a9a9a9 32%, #808080 50%, #a9a9a9 68%, #a9a9a9 100%);
+}
+
+/* line 65, ../sass/_mac.scss */
+#foot2 {
+  float: left;
+  clear: both;
+  margin-left: 390px;
+  width: 160px;
+  height: 10px;
+  background: darkgray;
+  background: -moz-linear-gradient(90deg, #a9a9a9 44%, #dfdfdf 100%);
+  background: -webkit-linear-gradient(90deg, #a9a9a9 44%, #dfdfdf 100%);
+  background: linear-gradient(0deg, #a9a9a9 44%, #dfdfdf 100%);
+}
+
+/* line 1, ../sass/_button.scss */
+.button {
+  float: left;
+  display: block;
+  margin: -10px 50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 36px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px 10px black;
+  z-index: 5;
+}
+/* line 15, ../sass/_button.scss */
+.button.design {
+  overflow: hidden;
+  padding: 0;
+  background: repeating-linear-gradient(45deg, white 10px, #199900 20px);
+}
+/* line 20, ../sass/_button.scss */
+.button.design span {
+  box-shadow: inset 0px 0px 0px 10px white;
+  color: black;
+  text-shadow: 0px 10px white;
+}
+/* line 24, ../sass/_button.scss */
+.button.design span:hover {
+  box-shadow: inset 0px 0px 0px 10px black;
+  color: white;
+  text-shadow: 0px 10px black;
+  -moz-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+/* line 32, ../sass/_button.scss */
+.button.develop {
+  transition: 2s;
+  background: repeating-linear-gradient(135deg, white 10px, #1faeff 20px);
+}
+/* line 37, ../sass/_button.scss */
+.button.develop span {
+  box-shadow: inset 0px 0px 0px 10px black;
+  color: white;
+  text-shadow: 0px 10px black;
+}
+/* line 41, ../sass/_button.scss */
+.button.develop span:hover {
+  -moz-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
+  box-shadow: inset 0px 0px 2px 10px white;
+  color: black;
+  text-shadow: 0px 10px white;
+}
+/* line 50, ../sass/_button.scss */
+.button span {
+  margin: 0 auto;
+  display: block;
+  line-height: 185px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  color: white;
+  text-shadow: 0px 10px black;
+  text-align: center;
+}
+
+/*****************************
+ 5A. tiles for .front design
+ ****************************/
+/* line 243, ../sass/main.scss */
+.top_left_tile, .top_right_tile, .bottom_left_tile, .bottom_right_tile {
+  float: left;
+  height: 88px;
+  width: 50px;
+  text-align: center;
+  line-height: 84px;
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  text-shadow: 0px 0px 2px black;
+}
+/* line 253, ../sass/main.scss */
+.top_left_tile:hover, .top_right_tile:hover, .bottom_left_tile:hover, .bottom_right_tile:hover {
+  box-shadow: 0px 0px 3px 3px white inset;
+  color: black;
+  transition: 2s;
+  cursor: pointer;
+}
+
+/********************
+  5A1. Top_left_tile
+  ******************/
+/* line 264, ../sass/main.scss */
+.top_left_tile {
+  background-color: #669ad4;
+}
+
+/* line 269, ../sass/main.scss */
+.top_left_tile, .back {
+  -webkit-backface-visibility: hidden;
+  /* Chrome and Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
+  backface-visibility: hidden;
+}
+
+/* line 277, ../sass/main.scss */
+.top_left_tile.back {
+  float: left;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  border: 1px solid white;
+  margin-right: 57px;
+  height: 84px;
+  width: 57px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  z-index: 3;
+  /* css3 box shadpow */
+  box-shadow: 0px 0px 50px 0px white inset;
+}
+
+/********************
+  5A2. Top_right_tile
+  ******************/
+/* line 297, ../sass/main.scss */
+.top_right_tile {
+  float: right;
+  background-color: #f47252;
+}
+
+/********************
+  5A3. Bottom_left_tile
+  ******************/
+/* line 307, ../sass/main.scss */
+.bottom_left_tile {
+  background-color: #fff450;
+}
+
+/* line 311, ../sass/main.scss */
+.bottom_left_tile.design span:nth-child(1) {
+  display: none;
+}
+
+/********************
+  5A4. Bottom_right_tile
+  ******************/
+/* line 318, ../sass/main.scss */
+.bottom_right_tile {
+  float: right;
+  background-color: #d391c1;
+}
+
+/*****************************
+ 5B. tiles for .front develop
+ ****************************/
+/* line 327, ../sass/main.scss */
+.flip_container.develop {
+  box-shadow: 0px 0px 0px 6px white inset;
+}
+
+/* line 332, ../sass/main.scss */
+.top_left_tile.develop, .top_right_tile.develop, .bottom_left_tile.develop, .bottom_right_tile.develop {
+  background-color: black;
+}
+
+/**************************
+  6. Pen + Pencil Holder
+  ************************/
+/* line 1, ../sass/_cups.scss */
+#cup_holder_container {
+  position: absolute;
+  height: 100px;
+  width: 60px;
+  margin-top: 413px;
+  margin-left: 30px;
+}
+
+/* line 9, ../sass/_cups.scss */
+#cup_holder {
+  height: 85px;
+  width: 60px;
+  margin-top: 15px;
+  background-size: 10px 10px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  background: -webkit-linear-gradient(-45deg, #9ecfd7 0%, #9ecfd7 6%, #aedbdf 7%, #aedbdf 10%, #9ecfd7 10%, #9ecfd7 22%, #aedbdf 22%, #aedbdf 33%, #9ecfd7 33%, #9ecfd7 40%, #aedbdf 40%, #aedbdf 42%, #9ecfd7 42%, #9ecfd7 76%, #aedbdf 76%, #aedbdf 87%, #9ecfd7 87%);
+  linear-gradient: -45deg, #9ecfd7 0%, #9ecfd7 6%, #aedbdf 7%, #aedbdf 10%, #9ecfd7 10%, #9ecfd7 22%, #aedbdf 22%, #aedbdf 33%, #9ecfd7 33%, #9ecfd7 40%, #aedbdf 40%, #aedbdf 42%, #9ecfd7 42%, #9ecfd7 76%, #aedbdf 76%, #aedbdf 87%, #9ecfd7 87%;
+}
+
+/***************************
+  8. Coffee Cup
+  *************************/
+/* line 24, ../sass/_cups.scss */
+#cup_container {
+  position: absolute;
+  margin-top: 362px;
+  margin-left: 815px;
+  height: 65px;
+  width: 70px;
+}
+
+/* line 34, ../sass/_cups.scss */
+#steam {
+  position: relative;
+  height: 50px;
+  width: 100px;
+  margin-bottom: 20px;
+  margin-left: -36px;
+  z-index: 3;
+}
+
+/* line 46, ../sass/_cups.scss */
+#cup {
+  position: relative;
+  height: 65px;
+  width: 50px;
+  background-color: white;
+  border: 2px solid white;
+  box-shadow: 0px 0px 0px 5px  #262626;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  background-image: linear-gradient(to bottom, #ecf0f1 25%, #643001 25%, #643001 50%, #532700 50%, #532700 75%, #3a1c00 75%);
+}
+
+/* line 58, ../sass/_cups.scss */
+#cup_handle {
+  position: relative;
+  margin-left: 54px;
+  margin-top: -68px;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border: 5px solid black;
+  height: 50px;
+  width: 12px;
+  box-shadow: 1px 1px 1px 1px white;
+}
+
+/* line 71, ../sass/_cups.scss */
+#coaster {
+  position: relative;
+  width: 70px;
+  height: 6px;
+  margin-top: 10px;
+  margin-left: -8px;
+  box-shadow: inset 0 1em 0 0.61803em #262626;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+/* line 341, ../sass/main.scss */
+#pencil {
+  display: inline-block;
+  position: relative;
+  height: 3px;
+  width: 100px;
+  background-color: yellow;
+  margin: -20px 0px 0px 20px;
+  z-index: -4;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(-30deg);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(25%, #f4d471), color-stop(25%, #936a22), color-stop(40%, #936a22), color-stop(40%, #f4d471), color-stop(65%, #f4d471), color-stop(65%, #936a22), color-stop(80%, #936a22), color-stop(80%, #f4d471));
+  background-image: -webkit-linear-gradient(#f4d471 25%, #936a22 25%, #936a22 40%, #f4d471 40%, #f4d471 65%, #936a22 65%, #936a22 80%, #f4d471 80%);
+  background-image: -moz-linear-gradient(#f4d471 25%, #936a22 25%, #936a22 40%, #f4d471 40%, #f4d471 65%, #936a22 65%, #936a22 80%, #f4d471 80%);
+  background-image: -o-linear-gradient(#f4d471 25%, #936a22 25%, #936a22 40%, #f4d471 40%, #f4d471 65%, #936a22 65%, #936a22 80%, #f4d471 80%);
+  background-image: linear-gradient(#f4d471 25%, #936a22 25%, #936a22 40%, #f4d471 40%, #f4d471 65%, #936a22 65%, #936a22 80%, #f4d471 80%);
+}
+
+/* line 360, ../sass/main.scss */
+.eraser {
+  height: 10px;
+  background-color: #efa0d3;
+  width: 2px;
+}
+
+/* line 367, ../sass/main.scss */
+.eraser::before {
+  display: block;
+  position: absolute;
+  content: "";
+  left: -5px;
+  width: 2px;
+  height: 2px;
+  z-index: -1;
+  background: #f2b8dd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 383, ../sass/main.scss */
+#pen {
+  display: inline-block;
+  position: relative;
+  height: 100px;
+  width: 3px;
+  background-color: brown;
+  margin: -20px 0px 0px 0px;
+  z-index: -4;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(-30deg);
+}
+
+/* line 395, ../sass/main.scss */
+#ruler {
+  display: inline-block;
+  position: relative;
+  height: 100px;
+  width: 7px;
+  background-color: white;
+  margin: -20px 0px 0px 0px;
+  z-index: -4;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+}
+
+/* line 5, ../sass/_chair.scss */
+#chair {
+  position: absolute;
+  background-image: url("../img/Aeron_miller.png");
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 500px;
+  margin-left: 150px;
+  margin-top: -150px;
+}
+
+/*
+
+#chair_back {
+   float: left;
+   width: 250px;
+  height: 300px;
+  background-color: black;
+  @include border-top-right-radius(10px"/"10px);
+  @include border-top-left-radius(10px"/"10px);
+}
+
+#middle_bar {
+  position: absolute;
+  width: 150px;
+  height: 15px;
+  margin: 185px 0px 0px 50px;
+  @include background( linear-gradient(90deg, #7f7f7f 0%,
+    #7f7f7f 45%, yellow 45%,
+    yellow 55%, #7f7f7f 55%,
+    #7f7f7f 100%));
+ &:before {
+   content: "";
+   float: left;
+   width: 67px;
+   height: 15px;
+ }
+ &:after {
+   content: "";
+   width: 67px;
+   height: 15px;
+   float: right;
+ }
+}
+
+#spine_middle {
+  float: left;
+  height: 210px;
+  margin: 57px 0 0 55px;
+  width: 140px;
+  @include background( linear-gradient(90deg, transparent 0%,
+                       transparent 45%, yellow 45%,
+                       yellow 55%, transparent 55%,
+                       transparent 100%));
+  // left arm for spine
+  &:before {
+    content: "";
+    float: left;
+    height: 95px;
+    width: 15px;
+    margin: 5px 0 0 20px;
+    background-color: yellow;
+    @include transform( rotate(-60deg));
+    @include perspective (1000);
+  }
+
+  // right arm for spine
+  &:after {
+    content: "";
+    float: right;
+    height: 95px;
+    width: 15px;
+    margin: 5px 20px 0 0;
+    background-color: yellow;
+    @include transform( rotate(60deg));
+  }
+}
+
+
+
+.arm {
+  float: left;
+  height: 110px;
+  width: 25px;
+  margin-top: 190px;
+  background-color: black;
+// arm rest
+  &:before {
+    content: "";
+    float: left;
+    height: 10px;
+    width: 25px;
+    background: red;
+  }
+}
+
+#middle_connector {
+  float: left;
+  clear: both;
+  height: 25px;
+  width: 5px;
+  margin: 0 0 0 147px;
+  background-color: blue;
+  &::before {
+    content: "" ;
+    float: left;
+    height: 35px;
+    width: 15px;
+    margin: 25px 0 0 -5px;
+    background-color: red;
+  }
+}
+
+.wheel {
+  float: left;
+  background-color: grey;
+  height: 10px;
+  width: 9px;
+  &:before {
+    content:"";
+    float: left;
+    background-color: black;
+    height: 15px;
+    width: 3px;
+  }
+  &:after {
+    content: "";
+    float: right;
+    background-color: black;
+    height: 15px;
+    width: 3px;
+  }
+}
+*/
+/******************************
+  9. Edge Water Computer Desk
+  ****************************/
+/* line 1, ../sass/_desk.scss */
+#desk_container {
+  width: 940px;
+  height: 300px;
+  float: left;
+  text-align: center;
+}
+
+/* line 8, ../sass/_desk.scss */
+#desk_top {
+  position: absolute;
+  width: 940px;
+  height: 20px;
+  background-color: #292929;
+  box-shadow: 0px 4px 4px -4px black;
+}
+
+/* line 16, ../sass/_desk.scss */
+.desk_left {
+  float: left;
+  width: 85px;
+  height: 270px;
+  margin-top: 20px;
+  margin-left: 28px;
+  background-color: #292929;
+  border-top: 20px solid #212121;
+  border-right: 20px solid #292929;
+  border-bottom: 20px solid #212121;
+  border-left: 20px solid #292929;
+  box-shadow: 0px 0px 0px 2px black, 0px 0px 0px 13px #4a4a4a, 0px 0px 5px 5px black inset, 0px 0px 2px 2px white inset;
+}
+
+/* line 37, ../sass/_desk.scss */
+.desk_middle {
+  float: left;
+  width: 600px;
+  height: 320px;
+  margin-top: 20px;
+  margin-left: 12px;
+  background-image: linear-gradient(to bottom, #ffffff 2px, #292929 2px, #292929 45px, #292929 46px, #000000 46px, #000000 50px, #292929 200px, rgba(0, 0, 0, 0) 200px, rgba(0, 0, 0, 0) 100%);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+/* line 55, ../sass/_desk.scss */
+.desk_right {
+  float: left;
+  width: 145px;
+  height: 310px;
+  margin-top: 20px;
+  box-shadow: 0px 0px 0px 2px black, 0px 0px 0px 13px #4A4A4A;
+}
+
+/* line 63, ../sass/_desk.scss */
+#top_drawer {
+  width: 105px;
+  height: 60px;
+  background-color: #292929;
+  border-top: 20px solid #212121;
+  border-right: 20px solid #292929;
+  border-bottom: 20px solid #212121;
+  border-left: 20px solid #292929;
+  box-shadow: 0px 0px 5px 5px black inset, 0px 0px 2px 2px white inset;
+}
+
+/* line 77, ../sass/_desk.scss */
+#bottom_drawer {
+  width: 105px;
+  height: 172px;
+  background-color: #292929;
+  border-top: 20px solid #212121;
+  border-right: 20px solid #292929;
+  border-bottom: 20px solid #212121;
+  border-left: 20px solid #292929;
+  box-shadow: 0px 0px 5px 5px black inset, 0px 0px 2px 2px white inset;
+}
+/* line 89, ../sass/_desk.scss */
+#bottom_drawer:before {
+  content: "";
+  position: absolute;
+  margin-top: -20px;
+  margin-left: -67px;
+  height: 2px;
+  width: 145px;
+  border-top: 2px solid black;
+}
+
+/* line 100, ../sass/_desk.scss */
+.knob {
+  width: 10px;
+  height: 10px;
+  background-color: #C0C0C0;
+  box-shadow: 0px 5px 8px 0px black, 0px 0px 1px 1px white inset;
+  border-radius: 50%;
+}
+/* line 106, ../sass/_desk.scss */
+.knob.one {
+  margin-left: 91px;
+  margin-top: 60px;
+}
+/* line 113, ../sass/_desk.scss */
+.knob.two {
+  margin: 0 auto;
+  margin-top: 18px;
+}
+/* line 117, ../sass/_desk.scss */
+.knob.three {
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+/* line 122, ../sass/_desk.scss */
+.knob.four {
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 47px;
+}
+
+/* line 129, ../sass/_desk.scss */
+.foot {
+  float: left;
+  height: 20px;
+  width: 10px;
+  margin-top: 43px;
+  background-color: black;
+}
+/* line 135, ../sass/_desk.scss */
+.foot.one {
+  margin-left: 15px;
+}
+/* line 138, ../sass/_desk.scss */
+.foot.two {
+  margin-left: 131px;
+}
+/* line 141, ../sass/_desk.scss */
+.foot.three {
+  margin-left: 588px;
+}
+/* line 144, ../sass/_desk.scss */
+.foot.four {
+  margin-left: 151px;
+}
+
+/* line 149, ../sass/_desk.scss */
+#coke_machine {
+  float: right;
+  margin-top: 40px;
+  height: 270px;
+  width: 130px;
+  margin-right: 10px;
+  background-image: url("/img/coke_machine.svg");
+  background-size: 100% 100%;
+}
+
+/**************************
+  10. Office chair
+  ************************/
+/***********************
+  11. Floor and Floor Tile
+  *********************/
+/* line 425, ../sass/main.scss */
+#floor {
+  width: 940px;
+  height: 200px;
+  float: left;
+}
+
+/* line 432, ../sass/main.scss */
+.floor_tile {
+  float: left;
+  height: 135px;
+  width: 20px;
+  background-color: #855E42;
+  background: repeating-linear-gradient(90deg, #8c4b21 5%, #787911 5%, #787911 10%, #8d8b62 10%, #8d8b62 15%, #769e9e 20%, #769e9e 25%, #954345 25%, #b76734 30%, #b3b23c 30%, #b3b23c 35%, #a88281 35%, #a88281 40%, #a2a079 40%, #a2a079 45%, #96bcbd 45%, #96bcbd 50%, #bd6f6f 55%, #bd6f6f 60%, #c37340 60%, #c37340 65%, #c4c44c 65%, #c4c44c 70%, #bd9796 70%, #bd9796 75%, #acaa83 75%, #acaa83 80%, #93bbbb 80%, #93bbbb 85%, #a14f51 85%, #a14f51 90%, #616100 90%, #616100 95%, #14312f 95%, #14312f 100%);
+  /* box-shadow: 0px 0px 10px 0px blue inset; */
+}
+
+/******************
+  12. Footer
+  ****************/
+/* line 463, ../sass/main.scss */
+footer {
+  width: 100%;
+  height: 200px;
+}
+
+/* line 5, ../sass/_brick_wall.scss */
+#brick_wall {
+  width: 100%;
+  height: 100%;
+  background: -moz-linear-gradient(287deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px), -moz-linear-gradient(289deg, rgba(0, 0, 0, 0) 0px, #181818 1px, #a52a2a 2px, #a52a2a 15px, rgba(0, 0, 0, 0) 15px), -moz-linear-gradient(107deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px), -moz-linear-gradient(107deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px);
+  background: -webkit-linear-gradient(287deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px), -webkit-linear-gradient(289deg, rgba(0, 0, 0, 0) 0px, #181818 1px, #a52a2a 2px, #a52a2a 15px, rgba(0, 0, 0, 0) 15px), -webkit-linear-gradient(107deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px), -webkit-linear-gradient(107deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px);
+  background: linear-gradient(163deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px), linear-gradient(161deg, rgba(0, 0, 0, 0) 0px, #181818 1px, #a52a2a 2px, #a52a2a 15px, rgba(0, 0, 0, 0) 15px), linear-gradient(343deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px), linear-gradient(343deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 1px, #a52a2a 1px, #a52a2a 14px, rgba(0, 0, 0, 0) 14px);
+  background-color: #121212;
+  background-position: 2px 1px, 23px 16px,48px 15px, 21px 30px;
+  background-size: 48px 30px;
+}
+
+/********************
+ ^^^ Ribbon ^^^
+ *******************/

@@ -117,12 +117,12 @@
 	      _whenClickedJs2["default"].addColors();
 	      _whenClickedJs2["default"].convertToArray();
 	      //I would like the following code to be cleaner if possible
-	      if (_elemJs2["default"].s.codeBox.classList.contains("css_box")) {
+	      if (_elemJs2["default"].el.codeBox.classList.contains("css_box")) {
 	        _whenClickedJs2["default"].convertToCss();
-	      } else if (_elemJs2["default"].s.codeBox.classList.contains("sass_box")) {
+	      } else if (_elemJs2["default"].el.codeBox.classList.contains("sass_box")) {
 	        _conversionJs2["default"].addSassVariables();
 	        _conversionJs2["default"].convertToSass();
-	      } else if (_elemJs2["default"].s.codeBox.classList.contains("less_box")) {
+	      } else if (_elemJs2["default"].el.codeBox.classList.contains("less_box")) {
 	        _conversionJs2["default"].addLessVariables();
 	        _conversionJs2["default"].convertToLess();
 	      } else {
@@ -158,7 +158,6 @@
 	      _jsConversionJs2["default"].addColorMap();
 	      bitIllustrator.convertToJs();
 	    });
-	    _elemJs2["default"].el.codeBoxToggle.addEventListener("click", bitIllustrator.codeBoxToggle, false);
 	  },
 
 	  updatedSettings: function updatedSettings() {
@@ -195,18 +194,12 @@
 	    _elemJs2["default"].el.colorBar.style.background = _elemJs2["default"].el.hexColor.value;
 	  },
 
-	  codeBoxToggle: function codeBoxToggle() {
-	    _elemJs2["default"].el.codeBoxContainer.classList.toggle("open");
-	    if (_elemJs2["default"].el.codeBoxContainer.classList.contains("open")) {
-	      _elemJs2["default"].el.codeBoxToggle.innerHTML = " - ";
-	    } else {
-	      _elemJs2["default"].el.codeBoxToggle.innerHTML = " + ";
-	    }
-	  },
-
 	  convertToJs: function convertToJs() {
 	    _elemJs2["default"].el.codeBox.classList.remove("css_box", "sass_box", "less_box");
 	    _elemJs2["default"].el.codeBox.classList.add("js_box");
+
+	    _elemJs2["default"].el.codeBoxBorder.classList.remove("css_border", "less_border", "sass_border");
+	    _elemJs2["default"].el.codeBoxBorder.classList.add("js_border");
 	  }
 	};
 
@@ -346,6 +339,7 @@
 	        headerContainer: document.getElementById("header-container"),
 	        colorPicker: document.getElementById("color-picker"),
 	        codeBox: document.getElementById("code_box"),
+	        innerCodeBox: document.getElementById("inner_code_box"),
 	        cssToggle: document.getElementById("css_toggle"),
 	        sassToggle: document.getElementById("sass_toggle"),
 	        lessToggle: document.getElementById("less_toggle"),
@@ -353,6 +347,7 @@
 	        viewButton: document.getElementById("view-button"),
 	        drawButton: document.getElementById("draw-button"),
 	        codeBoxToggle: document.getElementById("code_box_toggle"),
+	        codeBoxBorder: document.getElementById("code_box_border"),
 	        hexColor: document.getElementById("hex_color"),
 	        colorBar: document.getElementById("color_bar"),
 	        rgb: document.querySelectorAll(".rgb"),
@@ -443,16 +438,18 @@
 	    convertToCss: function convertToCss() {
 	        _elemJs2["default"].el.codeBox.classList.remove("sass_box", "less_box", "js_box");
 	        _elemJs2["default"].el.codeBox.classList.add("css_box");
-	        _elemJs2["default"].el.codeBoxToggle.style.color = "#1572b6";
+
+	        _elemJs2["default"].el.codeBoxBorder.classList.remove("sass_border", "less_border", "js_border");
+	        _elemJs2["default"].el.codeBoxBorder.classList.add("css_border");
 
 	        /* reset value for elem.codeBox */
-	        _elemJs2["default"].el.codeBox.innerHTML = "box-shadow: ";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML = "box-shadow: ";
 	        /* instead of re-inserting value, need to think of how to do this */
 	        for (var abc = 0; abc < _elemJs2["default"].s.storeValues.length; abc++) {
 	            if (abc === _elemJs2["default"].s.storeValues.length - 1) {
-	                _elemJs2["default"].el.codeBox.innerHTML += _elemJs2["default"].s.storeValues[abc].join(" ") + ";";
+	                _elemJs2["default"].el.innerCodeBox.innerHTML += _elemJs2["default"].s.storeValues[abc].join(" ") + ";";
 	            } else {
-	                _elemJs2["default"].el.codeBox.innerHTML += _elemJs2["default"].s.storeValues[abc].join(" ") + ", ";
+	                _elemJs2["default"].el.innerCodeBox.innerHTML += _elemJs2["default"].s.storeValues[abc].join(" ") + ", ";
 	            }
 	        }
 	    }
@@ -483,40 +480,43 @@
 	        _elemJs2["default"].el.codeBox.classList.remove("css_box", "less_box", "js_box");
 	        _elemJs2["default"].el.codeBox.classList.add("sass_box");
 
-	        _elemJs2["default"].el.codeBox.innerHTML = "$num: " + _elemJs2["default"].s.pixSize + ";<br>";
-	        for (var avi = 0; avi < _elemJs2["default"].s.storeColors.length; avi++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += " $colors" + avi + ": " + _elemJs2["default"].s.storeColors[avi] + ";";
+	        _elemJs2["default"].el.codeBoxBorder.classList.remove("css_border", "less_border", "js_border");
+	        _elemJs2["default"].el.codeBoxBorder.classList.add("sass_border");
+
+	        _elemJs2["default"].el.innerCodeBox.innerHTML = "$num: " + _elemJs2["default"].s.pixSize + ";<br>";
+	        for (var x = 0; x < _elemJs2["default"].s.storeColors.length; x++) {
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "$colors" + x + ": " + _elemJs2["default"].s.storeColors[x] + ";";
 	        }
 
-	        _elemJs2["default"].el.codeBox.innerHTML += "<br>";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "<br>";
 
 	        for (var x = 0; x < _elemJs2["default"].s.columnCount; x++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += "$X" + x + ": $num*" + x + "px; ";
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "$X" + x + ": $num*" + x + "px; ";
 	        }
-	        _elemJs2["default"].el.codeBox.innerHTML += "$num: " + _elemJs2["default"].s.pixSize + ";<br>";
+	        //elem.el.innerCodeBox.innerHTML += `$num: ${elem.s.pixSize};<br>`;
 	        for (var y = 0; y < _elemJs2["default"].s.columnCount; y++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += "$O" + x + ": $num*" + x + "px; ";
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "$O" + y + ": $num*" + y + "px; ";
 	        }
-	        _elemJs2["default"].el.codeBox.innerHTML += "<br><br>";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "<br><br>";
 	    },
 
 	    convertToSass: function convertToSass() {
 
-	        _elemJs2["default"].el.codeBox.innerHTML += "box-shadow: ";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "box-shadow: ";
 	        for (var x = 0; x < _elemJs2["default"].s.storeValues.length; x++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += " $X" + parseFloat(_elemJs2["default"].s.storeValues[x][0]) / _elemJs2["default"].s.pixSize;
-	            _elemJs2["default"].el.codeBox.innerHTML += " $O" + parseFloat(_elemJs2["default"].s.storeValues[x][1]) / _elemJs2["default"].s.pixSize;
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += " $X" + parseFloat(_elemJs2["default"].s.storeValues[x][0]) / _elemJs2["default"].s.pixSize;
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += " $O" + parseFloat(_elemJs2["default"].s.storeValues[x][1]) / _elemJs2["default"].s.pixSize;
 	            //need to add support with name that color
 
 	            for (var y = 0; y < _elemJs2["default"].s.storeColors.length; y++) {
 	                if (_elemJs2["default"].s.storeValues[x][2] === _elemJs2["default"].s.storeColors[y]) {
-	                    _elemJs2["default"].el.codeBox.innerHTML += " " + _elemJs2["default"].s.sassColorVariables[y];
+	                    _elemJs2["default"].el.innerCodeBox.innerHTML += " " + _elemJs2["default"].s.sassColorVariables[y];
 	                }
 	            }
 	            if (x === _elemJs2["default"].s.storeValues.length - 1) {
-	                _elemJs2["default"].el.codeBox.innerHTML += ";";
+	                _elemJs2["default"].el.innerCodeBox.innerHTML += ";";
 	            } else {
-	                _elemJs2["default"].el.codeBox.innerHTML += ",";
+	                _elemJs2["default"].el.innerCodeBox.innerHTML += ",";
 	            }
 	        }
 	    },
@@ -525,40 +525,43 @@
 	        _elemJs2["default"].el.codeBox.classList.remove("css_box", "sass_box", "js_box");
 	        _elemJs2["default"].el.codeBox.classList.add("less_box");
 
-	        _elemJs2["default"].el.codeBox.innerHTML = "@num:" + _elemJs2["default"].s.pixSize + ";<br>";
+	        _elemJs2["default"].el.codeBoxBorder.classList.remove("css_border", "sass_border", "js_border");
+	        _elemJs2["default"].el.codeBoxBorder.classList.add("less_border");
+
+	        _elemJs2["default"].el.innerCodeBox.innerHTML = "@num:" + _elemJs2["default"].s.pixSize + ";<br>";
 
 	        for (var x = 0; x < _elemJs2["default"].s.storeColors.length; x++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += "@colors" + x + ": " + _elemJs2["default"].s.storeColors[x] + ";";
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "@colors" + x + ": " + _elemJs2["default"].s.storeColors[x] + ";";
 	        }
 
-	        _elemJs2["default"].el.codeBox.innerHTML += "<br>";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "<br>";
 
 	        for (var x = 0; x < _elemJs2["default"].s.columnCount; x++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += "@X" + x + ": @num*" + x + "px; ";
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "@X" + x + ": @num*" + x + "px; ";
 	        }
-	        _elemJs2["default"].el.codeBox.innerHTML += "$num: " + _elemJs2["default"].s.pixSize + ";<br>";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "$num: " + _elemJs2["default"].s.pixSize + ";<br>";
 	        for (var y = 0; y < _elemJs2["default"].s.columnCount; y++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += "@O" + x + ": @num*" + x + "px; ";
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "@O" + y + ": @num*" + y + "px; ";
 	        }
-	        _elemJs2["default"].el.codeBox.innerHTML += "<br><br>";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "<br><br>";
 	    },
 
 	    convertToLess: function convertToLess() {
-	        _elemJs2["default"].el.codeBox.innerHTML += "box-shadow: ";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "box-shadow: ";
 	        for (var xyz = 0; xyz < _elemJs2["default"].s.storeValues.length; xyz++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += " @X" + parseFloat(_elemJs2["default"].s.storeValues[xyz][0]) / _elemJs2["default"].s.pixSize;
-	            _elemJs2["default"].el.codeBox.innerHTML += " @O" + parseFloat(_elemJs2["default"].s.storeValues[xyz][1]) / _elemJs2["default"].s.pixSize;
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += " @X" + parseFloat(_elemJs2["default"].s.storeValues[xyz][0]) / _elemJs2["default"].s.pixSize;
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += " @O" + parseFloat(_elemJs2["default"].s.storeValues[xyz][1]) / _elemJs2["default"].s.pixSize;
 
 	            for (var avi = 0; avi < _elemJs2["default"].s.storeColors.length; avi++) {
 	                if (_elemJs2["default"].s.storeValues[xyz][2] === _elemJs2["default"].s.storeColors[avi]) {
-	                    _elemJs2["default"].el.codeBox.innerHTML += " " + _elemJs2["default"].s.lessColorVariables[avi];
+	                    _elemJs2["default"].el.innerCodeBox.innerHTML += " " + _elemJs2["default"].s.lessColorVariables[avi];
 	                }
 	            }
 
 	            if (xyz === _elemJs2["default"].s.storeValues.length - 1) {
-	                _elemJs2["default"].el.codeBox.innerHTML += ";";
+	                _elemJs2["default"].el.innerCodeBox.innerHTML += ";";
 	            } else {
-	                _elemJs2["default"].el.codeBox.innerHTML += ",";
+	                _elemJs2["default"].el.innerCodeBox.innerHTML += ",";
 	            }
 	        }
 	    }
@@ -595,8 +598,8 @@
 	var convertJS = {
 
 	    addEmptyArrayMap: function addEmptyArrayMap() {
-	        _elemJs2["default"].el.codeBox.innerHTML = "var canvas, ctx, tileSize = " + _elemJs2["default"].s.pixSize + ", map = [<br> ";
-	        _elemJs2["default"].el.codeBox.innerHTML += "[";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML = "var canvas, ctx, tileSize = " + _elemJs2["default"].s.pixSize + ", map = [<br> ";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "[";
 	        arrMap = [];
 	        //initialize the array map
 	        for (x = 0; x < _elemJs2["default"].s.rowCount; x++) {
@@ -624,27 +627,27 @@
 	        //test to see if I can change value of  arrMap[1][1] = 3;
 	        arrMap[_elemJs2["default"].s.columnCount - 1] += "]";
 	        arrMap[_elemJs2["default"].s.columnCount - 1] += "<br>],";
-	        _elemJs2["default"].el.codeBox.innerHTML += arrMap.join("],<br />[");
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += arrMap.join("],<br />[");
 	    },
 
 	    // make to add a pre tag, so that it actually treats code as code
 	    // and it makes a line break
 	    addArrMapCode: function addArrMapCode() {
-	        _elemJs2["default"].el.codeBox.innerHTML += "\n       <pre> arrMap = {\n      Color: function(r, g, b, a) {\n\n          this.r = r;\n          this.g = g;\n          this.b = b;\n          this.a = a;\n\n          this.toString = function() {\n\n              return \"rgba(\" + this.r + \",\" + this.g + \",\" + this.b + \",\" + this.a + \")\";\n          }\n\n      },\n\n      draw: function(){\n        for(var y = 0; y < map.length; y++) {\n          for(var x = 0; x < map.length; x++) {\n            ctx.fillStyle = colors[map[y][x]].toString();\n            ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);\n          }\n        }\n      },\n      init: function(){\n        canvas = document.getElementById(\"canvas\");\n        canvas.width = window.outerWidth;\n        canvas.height = window.outerHeight;\n        ctx = canvas.getContext(\"2d\");\n\n        window.setInterval(function() {\n\n            arrMap.draw();\n        }, 1000 / 30);\n      }\n    };\n\n       </pre>";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "\n       <pre> arrMap = {\n      Color: function(r, g, b, a) {\n\n          this.r = r;\n          this.g = g;\n          this.b = b;\n          this.a = a;\n\n          this.toString = function() {\n\n              return \"rgba(\" + this.r + \",\" + this.g + \",\" + this.b + \",\" + this.a + \")\";\n          }\n\n      },\n\n      draw: function(){\n        for(var y = 0; y < map.length; y++) {\n          for(var x = 0; x < map.length; x++) {\n            ctx.fillStyle = colors[map[y][x]].toString();\n            ctx.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);\n          }\n        }\n      },\n      init: function(){\n        canvas = document.getElementById(\"canvas\");\n        canvas.width = window.outerWidth;\n        canvas.height = window.outerHeight;\n        ctx = canvas.getContext(\"2d\");\n\n        window.setInterval(function() {\n\n            arrMap.draw();\n        }, 1000 / 30);\n      }\n    };\n\n       </pre>";
 	    },
 
 	    addColorMap: function addColorMap() {
-	        _elemJs2["default"].el.codeBox.innerHTML += "var colors = [ \" \",";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "var colors = [ \" \",";
 	        for (x = 0; x < _elemJs2["default"].s.storeColors.length; x++) {
-	            _elemJs2["default"].el.codeBox.innerHTML += "new arrMap.Color(" + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).r + "," + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).g + "," + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).b + ", 1)";
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "new arrMap.Color(" + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).r + "," + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).g + "," + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).b + ", 1)";
 	            if (x === _elemJs2["default"].s.storeColors.length - 1) {
-	                _elemJs2["default"].el.codeBox.innerHTML += '';
+	                _elemJs2["default"].el.innerCodeBox.innerHTML += '';
 	            } else {
-	                _elemJs2["default"].el.codeBox.innerHTML += ", ";
+	                _elemJs2["default"].el.innerCodeBox.innerHTML += ", ";
 	            }
 	        }
 
-	        _elemJs2["default"].el.codeBox.innerHTML += "];<pre>\n     arrMap.init();</pre>\n     ";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "];<pre>\n     arrMap.init();</pre>\n     ";
 	    }
 	};
 

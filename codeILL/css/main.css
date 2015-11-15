@@ -6589,7 +6589,13 @@ html, body {
 ####################
 */
 #header-container {
-  display: none; }
+  display: none;
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  right: 0;
+  background: white;
+  box-shadow: 0 0 0 3px #1572b6 inset, 3px 3px 0 3px #CF649A inset, 6px 6px 0 3px #1d365d inset, 9px 9px 0 3px #F0DB4F inset, -3px -3px 0 3px #CF649A inset, -6px -6px 0 3px #1d365d inset, -9px -9px 0 3px #F0DB4F inset; }
 
 #reset-button, #view-button, #draw-button {
   background: #000;
@@ -6620,7 +6626,7 @@ textarea:focus, input:focus {
 #color-picker {
   display: none;
   color: black;
-  background: white; }
+  margin-top: .5rem; }
   #color-picker label {
     color: #999999; }
   #color-picker input {
@@ -6629,6 +6635,10 @@ textarea:focus, input:focus {
     margin: 0;
     box-shadow: none;
     background: white; }
+
+.color-button-styling {
+  width: 88%;
+  margin-left: 6%; }
 
 #control_view {
   padding: 0; }
@@ -6710,9 +6720,9 @@ textarea:focus, input:focus {
 
 #code_box_container {
   position: fixed;
-  width: 100%;
-  height: 230px;
-  bottom: -200px;
+  width: 230px;
+  height: 100%;
+  top: 0;
   left: 0;
   right: 0;
   transition: 1s; }
@@ -6742,13 +6752,14 @@ textarea:focus, input:focus {
 
 #code_box {
   transition: .7s;
-  height: 200px;
+  height: 100%;
   background: black;
   color: white;
   box-shadow: 0 0 0 10px #f8f8ff inset;
   padding-top: 0.9375rem;
   padding-bottom: 0.9375rem;
-  overflow: scroll; }
+  overflow: scroll;
+  font-family: 'Caveat', cursive; }
   #code_box.css_box {
     box-shadow: 0 0 0 10px #1572b6 inset; }
   #code_box.sass_box {
@@ -6757,6 +6768,23 @@ textarea:focus, input:focus {
     box-shadow: 0 0 0 10px #1d365d inset; }
   #code_box.js_box {
     box-shadow: 0 0 0 10px #F0DB4F inset; }
+
+pre {
+  font-family: 'Caveat', cursive; }
+
+#code_box_border {
+  height: .1rem;
+  background: #1572b6;
+  margin-top: 1rem;
+  transition: 1.5s; }
+  #code_box_border.css_border {
+    background: #1572b6; }
+  #code_box_border.sass_border {
+    background: #CF649A; }
+  #code_box_border.less_border {
+    background: #1d365d; }
+  #code_box_border.js_border {
+    background: #F0DB4F; }
 
 .code_toggle {
   height: 30px;

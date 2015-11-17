@@ -78,6 +78,10 @@
 
 	var _controlViewJs2 = _interopRequireDefault(_controlViewJs);
 
+	var _colorPickerJs = __webpack_require__(8);
+
+	var _colorPickerJs2 = _interopRequireDefault(_colorPickerJs);
+
 	var _elemJs = __webpack_require__(3);
 
 	var _elemJs2 = _interopRequireDefault(_elemJs);
@@ -107,30 +111,33 @@
 	      _controlViewJs2["default"].addBackTiles();
 	    });
 	    _elemJs2["default"].el.drawButton.addEventListener("click", function () {
+	      _controlViewJs2["default"].allowHandleClick();
 	      _controlViewJs2["default"].removeTiles();
 	      _gridJs2["default"].createGridIllustrator();
 	      _controlViewJs2["default"].redoGrid();
 	    });
 	    _elemJs2["default"].s.resetButton.addEventListener("click", _controlViewJs2["default"].resetButton, false);
 	    c.addEventListener("click", function () {
-	      _gridJs2["default"].handleClick();
-	      _whenClickedJs2["default"].addColors();
-	      _whenClickedJs2["default"].convertToArray();
-	      //I would like the following code to be cleaner if possible
-	      if (_elemJs2["default"].el.codeBox.classList.contains("css_box")) {
-	        _whenClickedJs2["default"].convertToCss();
-	      } else if (_elemJs2["default"].el.codeBox.classList.contains("sass_box")) {
-	        _conversionJs2["default"].addSassVariables();
-	        _conversionJs2["default"].convertToSass();
-	      } else if (_elemJs2["default"].el.codeBox.classList.contains("less_box")) {
-	        _conversionJs2["default"].addLessVariables();
-	        _conversionJs2["default"].convertToLess();
-	      } else {
-	        _jsConversionJs2["default"].addEmptyArrayMap();
-	        _jsConversionJs2["default"].addArrayMap();
-	        _jsConversionJs2["default"].addArrMapCode();
-	        _jsConversionJs2["default"].addColorMap();
-	        bitIllustrator.convertToJs();
+	      if (c.classList.contains("allow-handle-click")) {
+	        _gridJs2["default"].handleClick();
+	        _whenClickedJs2["default"].addColors();
+	        _whenClickedJs2["default"].convertToArray();
+	        //I would like the following code to be cleaner if possible
+	        if (_elemJs2["default"].el.codeBox.classList.contains("css_box")) {
+	          _whenClickedJs2["default"].convertToCss();
+	        } else if (_elemJs2["default"].el.codeBox.classList.contains("sass_box")) {
+	          _conversionJs2["default"].addSassVariables();
+	          _conversionJs2["default"].convertToSass();
+	        } else if (_elemJs2["default"].el.codeBox.classList.contains("less_box")) {
+	          _conversionJs2["default"].addLessVariables();
+	          _conversionJs2["default"].convertToLess();
+	        } else {
+	          _jsConversionJs2["default"].addEmptyArrayMap();
+	          _jsConversionJs2["default"].addArrayMap();
+	          _jsConversionJs2["default"].addArrMapCode();
+	          _jsConversionJs2["default"].addColorMap();
+	          bitIllustrator.convertToJs();
+	        }
 	      }
 	    });
 	    _elemJs2["default"].el.cssToggle.addEventListener("click", function () {
@@ -144,12 +151,18 @@
 	      _conversionJs2["default"].addLessVariables();
 	      _conversionJs2["default"].convertToLess();
 	    });
+	    _elemJs2["default"].el.backgroundHexColor.addEventListener("input", function () {
+	      _colorPickerJs2["default"].pickBackgroundHexColor();
+	    });
 	    _elemJs2["default"].el.hexColor.addEventListener("input", function () {
-	      bitIllustrator.pickHexColor();
+	      _colorPickerJs2["default"].pickHexColor();
 	    });
 	    //consider revision
 	    for (var i = 0; i < 3; i++) {
-	      _elemJs2["default"].el.rgb[i].addEventListener("input", bitIllustrator.pickRgbColor, false);
+	      _elemJs2["default"].el.rgb[i].addEventListener("input", _colorPickerJs2["default"].pickRgbColor, false);
+	    }
+	    for (var i = 0; i < 3; i++) {
+	      _elemJs2["default"].el.backgroundRgb[i].addEventListener("input", _colorPickerJs2["default"].pickBackgroundRgbColor, false);
 	    }
 	    _elemJs2["default"].el.jsToggle.addEventListener("click", function () {
 	      _jsConversionJs2["default"].addEmptyArrayMap();
@@ -158,8 +171,10 @@
 	      _jsConversionJs2["default"].addColorMap();
 	      bitIllustrator.convertToJs();
 	    });
+	    window.addEventListener("keydown", function () {
+	      _controlViewJs2["default"].toggleView(event);
+	    });
 	  },
-
 	  updatedSettings: function updatedSettings() {
 	    _elemJs2["default"].s.rowCount = document.getElementById("input-for-rows").value;
 	    _elemJs2["default"].s.columnCount = document.getElementById("input-for-columns").value;
@@ -168,7 +183,9 @@
 
 	  hideShow: function hideShow() {
 	    _elemJs2["default"].s.chooseSizeContainer.style.display = "none";
+	    _elemJs2["default"].el.codeBoxContainer.style.display = "block";
 	    _elemJs2["default"].el.colorPicker.style.display = "block";
+	    _elemJs2["default"].el.backgroundColorPicker.style.display = "block";
 	    _elemJs2["default"].el.headerContainer.style.display = "block";
 	    _elemJs2["default"].s.canvas.style.display = "block";
 	  },
@@ -177,21 +194,6 @@
 	    _elemJs2["default"].s.canvas.width = _elemJs2["default"].s.columnCount * _elemJs2["default"].s.pixSize;
 	    _elemJs2["default"].s.canvas.height = _elemJs2["default"].s.rowCount * _elemJs2["default"].s.pixSize;
 	    _elemJs2["default"].s.canvas.style.marginLeft = -(_elemJs2["default"].s.columnCount * _elemJs2["default"].s.pixSize) / 2 + "px";
-	  },
-
-	  pickHexColor: function pickHexColor() {
-	    var newHexValue = _elemJs2["default"].el.hexColor.value;
-
-	    _elemJs2["default"].el.colorBar.style.background = newHexValue;
-
-	    _elemJs2["default"].el.red.value = _utilsJs2["default"].hexToRgb(newHexValue).r;
-	    _elemJs2["default"].el.green.value = _utilsJs2["default"].hexToRgb(newHexValue).g;
-	    _elemJs2["default"].el.blue.value = _utilsJs2["default"].hexToRgb(newHexValue).b;
-	  },
-
-	  pickRgbColor: function pickRgbColor() {
-	    _elemJs2["default"].el.hexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.red.value), parseFloat(_elemJs2["default"].el.green.value), parseFloat(_elemJs2["default"].el.blue.value));
-	    _elemJs2["default"].el.colorBar.style.background = _elemJs2["default"].el.hexColor.value;
 	  },
 
 	  convertToJs: function convertToJs() {
@@ -214,6 +216,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	var _arguments = arguments;
 	var utils = {
 	  compare: function compare(a, b) {
 
@@ -244,6 +247,11 @@
 	  },
 	  rgbToHex: function rgbToHex(r, g, b) {
 	    return "#" + utils.componentToHex(r) + utils.componentToHex(g) + utils.componentToHex(b);
+	  },
+	  invert: function invert(rgb) {
+	    rgb = [].slice.call(_arguments).join(",").replace(/rgb\(|\)|rgba\(|\)|\s/gi, '').split(',');
+	    for (var i = 0; i < rgb.length; i++) rgb[i] = (i === 3 ? 1 : 255) - rgb[i];
+	    return rgb.join(", ");
 	  }
 	};
 
@@ -283,9 +291,9 @@
 
 	        for (var r = 0; r < _elemJs2["default"].s.columnCount; r++) {
 	            for (var i = 0; i < _elemJs2["default"].s.rowCount; i++) {
-	                ctx.strokeStyle = "#445751";
+	                ctx.strokeStyle = "#3F3B3A";
 	                ctx.strokeRect(r * _elemJs2["default"].s.pixSize, i * _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize);
-	                ctx.fillStyle = "rgba(62, 71, 74, 1)";
+	                ctx.fillStyle = "rgba(25, 25, 25, 1)";
 	                ctx.fillRect(r * _elemJs2["default"].s.pixSize + 1, i * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	            }
 	        }
@@ -302,8 +310,8 @@
 	        var imgData = ctx.getImageData(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	        //if it is the background grey/gray remove it
 	        //currently does not work with color change
-	        if (imgData.data[0] !== 62 && imgData.data[1] !== 71 && imgData.data[2] !== 74) {
-	            ctx.fillStyle = "rgba(62, 71, 74, 1)";
+	        if (imgData.data[0] !== 25 && imgData.data[1] !== 25 && imgData.data[2] !== 25) {
+	            ctx.fillStyle = "rgba(25, 25, 25, 1)";
 	            ctx.clearRect(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	            ctx.fillRect(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1,
 	            //accomodate for 2 px border
@@ -337,7 +345,6 @@
 	    el: {
 	        codeBoxContainer: document.getElementById("code_box_container"),
 	        headerContainer: document.getElementById("header-container"),
-	        colorPicker: document.getElementById("color-picker"),
 	        codeBox: document.getElementById("code_box"),
 	        innerCodeBox: document.getElementById("inner_code_box"),
 	        cssToggle: document.getElementById("css_toggle"),
@@ -348,12 +355,20 @@
 	        drawButton: document.getElementById("draw-button"),
 	        codeBoxToggle: document.getElementById("code_box_toggle"),
 	        codeBoxBorder: document.getElementById("code_box_border"),
-	        hexColor: document.getElementById("hex_color"),
 	        colorBar: document.getElementById("color_bar"),
-	        rgb: document.querySelectorAll(".rgb"),
-	        red: document.getElementById("red"),
-	        green: document.getElementById("green"),
-	        blue: document.getElementById("blue")
+	        backgroundColorBar: document.getElementById("background_color_bar"),
+	        rgb: document.getElementById("color-picker").getElementsByClassName("rgb"),
+	        backgroundRgb: document.getElementById("background-color-picker").querySelectorAll(".backgroundRgb"),
+	        colorPicker: document.getElementById("color-picker"),
+	        backgroundColorPicker: document.getElementById("background-color-picker"),
+	        hexColor: document.getElementById("pix-hex-color"),
+	        backgroundHexColor: document.getElementById("background-hex-color"),
+	        pixRed: document.getElementById("pix-red"),
+	        pixGreen: document.getElementById("pix-green"),
+	        pixBlue: document.getElementById("pix-blue"),
+	        backgroundRed: document.getElementById("background-red"),
+	        backgroundGreen: document.getElementById("background-green"),
+	        backgroundBlue: document.getElementById("background-blue")
 	    },
 	    //settings
 	    s: {
@@ -670,6 +685,10 @@
 
 	var _elemJs2 = _interopRequireDefault(_elemJs);
 
+	var _gridJs = __webpack_require__(2);
+
+	var _gridJs2 = _interopRequireDefault(_gridJs);
+
 	var s,
 	    x,
 	    y,
@@ -680,6 +699,12 @@
 	    ctx = c.getContext("2d");
 
 	var cntrlView = {
+	    allowHandleClick: function allowHandleClick() {
+	        c.classList.add("allow-handle-click");
+	    },
+	    stopHandleClick: function stopHandleClick() {
+	        c.classList.remove("allow-handle-click");
+	    },
 	    removeTiles: function removeTiles() {
 	        _elemJs2["default"].s.canvas.style.background = "none";
 	        for (var x = 0; x < _elemJs2["default"].s.columnCount; x++) {
@@ -708,10 +733,80 @@
 	        } else {
 	            _elemJs2["default"].s.resetButton.classList.add("warning");
 	        }
+	    },
+	    toggleView: function toggleView() {
+	        var x = event.keyCode;
+	        if (x === 71) {
+	            if (c.classList.contains("allow-handle-click")) {
+	                cntrlView.stopHandleClick();
+	                cntrlView.removeTiles();
+	                cntrlView.addBackTiles();
+	            } else {
+	                cntrlView.allowHandleClick();
+	                cntrlView.removeTiles();
+	                _gridJs2["default"].createGridIllustrator();
+	                cntrlView.redoGrid();
+	            }
+	        }
 	    }
 	};
 
 	exports["default"] = cntrlView;
+	module.exports = exports["default"];
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _elemJs = __webpack_require__(3);
+
+	var _elemJs2 = _interopRequireDefault(_elemJs);
+
+	var _utilsJs = __webpack_require__(1);
+
+	var _utilsJs2 = _interopRequireDefault(_utilsJs);
+
+	var clrPckr = {
+	    pickHexColor: function pickHexColor() {
+	        var newHexValue = _elemJs2["default"].el.hexColor.value;
+
+	        _elemJs2["default"].el.colorBar.style.background = newHexValue;
+	        _elemJs2["default"].el.headerContainer.style.boxShadow = '0 0 0 10px ' + newHexValue + ' inset';
+
+	        _elemJs2["default"].el.pixRed.value = _utilsJs2["default"].hexToRgb(newHexValue).r;
+	        _elemJs2["default"].el.pixGreen.value = _utilsJs2["default"].hexToRgb(newHexValue).g;
+	        _elemJs2["default"].el.pixBlue.value = _utilsJs2["default"].hexToRgb(newHexValue).b;
+	    },
+	    pickRgbColor: function pickRgbColor() {
+	        _elemJs2["default"].el.hexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.pixRed.value), parseFloat(_elemJs2["default"].el.pixGreen.value), parseFloat(_elemJs2["default"].el.pixBlue.value));
+	        _elemJs2["default"].el.colorBar.style.background = _elemJs2["default"].el.hexColor.value;
+	    },
+	    pickBackgroundHexColor: function pickBackgroundHexColor() {
+	        var newHexValue = _elemJs2["default"].el.backgroundHexColor.value;
+
+	        document.body.style.background = newHexValue;
+	        //elem.el.headerContainer.style.boxShadow = '0 0 0 10px ' + newHexValue +  ' inset';
+
+	        _elemJs2["default"].el.backgroundRed.value = _utilsJs2["default"].hexToRgb(newHexValue).r;
+	        _elemJs2["default"].el.backgroundGreen.value = _utilsJs2["default"].hexToRgb(newHexValue).g;
+	        _elemJs2["default"].el.backgroundBlue.value = _utilsJs2["default"].hexToRgb(newHexValue).b;
+	    },
+	    pickBackgroundRgbColor: function pickBackgroundRgbColor() {
+	        _elemJs2["default"].el.backgroundHexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.backgroundRed.value), parseFloat(_elemJs2["default"].el.backgroundGreen.value), parseFloat(_elemJs2["default"].el.backgroundBlue.value));
+	        _elemJs2["default"].el.backgroundColorBar.style.background = _elemJs2["default"].el.backgroundHexColor.value;
+	        document.body.style.background = _elemJs2["default"].el.backgroundHexColor.value;
+	    }
+	};
+
+	exports["default"] = clrPckr;
 	module.exports = exports["default"];
 
 /***/ }

@@ -8,27 +8,54 @@
 </head>
 <body>
   <div id="header-container">
-    <div id="color-picker" class="column large-12">
+    <div id="background-color-picker" class="column large-12">
+      <h3>Background Color</h3>
       <div class="large-12">
         <label id="hex_label">Hex
-          <input id="hex_color" type="text" value="#000" maxlength="7" class="large-12">
+          <input id="background-hex-color" type="text" value="#000" maxlength="7" class="large-12">
+        </label>
+      </div>
+      <div id="background_color_bar" class="large-12"></div>
+      <div class="large-12">
+        <div id="rgb" class="large-4 column no-padding">
+          <label>R
+            <input id="background-red" type="text" maxlength="3" value="000" class="backgroundRgb">
+          </label>
+        </div>
+        <div class="large-4 column no-padding">
+          <label>G
+            <input id="background-green" type="text" maxlength="3" value="000" class="backgroundRgb">
+          </label>
+        </div>
+        <div class="large-4 column no-padding">
+          <label>B
+            <input id="background-blue" type="text" maxlength="3" value="000" class="backgroundRgb">
+          </label>
+        </div>
+      </div>
+    </div>
+    <div id="color-picker" class="column large-12">
+      <h3>Pixel Color</h3>
+      <div class="large-12">
+        <label id="hex_label">Hex
+          <input id="pix-hex-color" type="text" value="#000" maxlength="7" class="large-12">
         </label>
       </div>
       <div id="color_bar" class="large-12"></div>
       <div class="large-12">
         <div id="rgb" class="large-4 column no-padding">
           <label>R
-            <input id="red" type="text" maxlength="3" value="000" class="rgb">
+            <input id="pix-red" type="text" maxlength="3" value="000" class="rgb">
           </label>
         </div>
         <div class="large-4 column no-padding">
           <label>G
-            <input id="green" type="text" maxlength="3" value="000" class="rgb">
+            <input id="pix-green" type="text" maxlength="3" value="000" class="rgb">
           </label>
         </div>
         <div class="large-4 column no-padding">
           <label>B
-            <input id="blue" type="text" maxlength="3" value="000" class="rgb">
+            <input id="pix-blue" type="text" maxlength="3" value="000" class="rgb">
           </label>
         </div>
       </div>
@@ -37,7 +64,7 @@
       <div id="view-button" class="large-12 color-button-styling">View Mode</div>
       <div id="draw-button" class="large-12 color-button-styling">Draw Mode</div>
       <div id="reset-button" class="large-12 color-button-styling">Reset</div>
-      <div id="control_panel" class="color-button-styling">Toggle View</div>
+      <div id="control_panel" class="color-button-styling">G Toggle View</div>
     </div>
   </div>
   <div id="choose_size_container" class="large-3 center">
@@ -53,7 +80,7 @@
     </form>
     <div id="need_help" class="row"></div>
   </div>
-  <canvas width="500" height="500" id="canvasGrid"></canvas>
+  <canvas width="500" height="500" id="canvasGrid" class="allow-handle-click"></canvas>
   <div id="code_box_container">
     <div id="code_box" class="css_box column large-12">
       <div class="row">

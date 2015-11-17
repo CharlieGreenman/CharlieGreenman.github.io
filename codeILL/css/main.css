@@ -6576,7 +6576,7 @@ th.hide-for-touch {
 */
 html, body {
   overflow: hidden;
-  background: #3e4649; }
+  background: #191919; }
 
 /*
 ####################
@@ -6595,12 +6595,11 @@ html, body {
   height: 100%;
   right: 0;
   background: white;
-  box-shadow: 0 0 0 3px #1572b6 inset, 3px 3px 0 3px #CF649A inset, 6px 6px 0 3px #1d365d inset, 9px 9px 0 3px #F0DB4F inset, -3px -3px 0 3px #CF649A inset, -6px -6px 0 3px #1d365d inset, -9px -9px 0 3px #F0DB4F inset; }
+  box-shadow: 0 0 0 10px black inset; }
 
 #reset-button, #view-button, #draw-button {
   background: #000;
   text-align: center;
-  cursor: pointer;
   color: white; }
 
 #view-button {
@@ -6623,13 +6622,13 @@ html, body {
 textarea:focus, input:focus {
   outline: 0; }
 
-#color-picker {
+#color-picker, #background-color-picker {
   display: none;
   color: black;
   margin-top: .5rem; }
-  #color-picker label {
+  #color-picker label, #background-color-picker label {
     color: #999999; }
-  #color-picker input {
+  #color-picker input, #background-color-picker input {
     border: none;
     padding: 0;
     margin: 0;
@@ -6719,6 +6718,7 @@ textarea:focus, input:focus {
   cursor: crosshair; }
 
 #code_box_container {
+  display: none;
   position: fixed;
   width: 230px;
   height: 100%;

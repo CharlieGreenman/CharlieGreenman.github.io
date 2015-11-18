@@ -6594,30 +6594,41 @@ html, body {
   width: 200px;
   height: 100%;
   right: 0;
-  background: white;
+  color: white;
+  background: black;
+  font-family: 'Reenie Beanie', cursive;
   box-shadow: 0 0 0 10px black inset; }
+  #header-container h3 {
+    font-family: 'Reenie Beanie', cursive;
+    margin: 0; }
+  #header-container label, #header-container input {
+    font-size: 1.5rem;
+    text-align: center;
+    background: black; }
 
 #reset-button, #view-button, #draw-button {
   background: #000;
   text-align: center;
-  color: white; }
+  color: white;
+  cursor: pointer; }
 
 #view-button {
   margin-top: 0;
   border-bottom: 1px solid white; }
 
 #view-button, #draw-button {
+  cursor: pointer;
   height: 35px;
   line-height: 35px; }
 
 #reset-button {
   height: 50px;
   line-height: 50px;
-  background: #FF4A00;
+  color: #FF4A00;
   text-transform: uppercase;
   transition: .8s; }
   #reset-button.warning {
-    background: #B33A3A; }
+    color: #B33A3A; }
 
 textarea:focus, input:focus {
   outline: 0; }
@@ -6633,7 +6644,8 @@ textarea:focus, input:focus {
     padding: 0;
     margin: 0;
     box-shadow: none;
-    background: white; }
+    color: white;
+    text-align: left; }
 
 .color-button-styling {
   width: 88%;
@@ -6642,13 +6654,14 @@ textarea:focus, input:focus {
 #control_view {
   padding: 0; }
 
-#hex_label {
-  padding-top: 0.5rem; }
+label#hex_label {
+  padding-top: 0.5rem;
+  color: #F0DB4F; }
 
 #hex_color {
   height: 30px; }
 
-#color_bar {
+#color_bar, #background_color_bar {
   height: 3px;
   background: black; }
 
@@ -6805,6 +6818,23 @@ pre {
 
 #js_toggle {
   background: #F0DB4F; }
+
+#rgb .column:nth-child(1) label, #rgb-background .column:nth-child(1) label {
+  color: red; }
+
+#rgb .column:nth-child(2) label, #rgb-background .column:nth-child(2) label {
+  color: green; }
+
+#rgb .column:nth-child(3) label, #rgb-background .column:nth-child(3) label {
+  color: blue; }
+
+.letter {
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 5px; }
+
+.desc_text {
+  margin-left: 10px; }
 
 /*
 ####################

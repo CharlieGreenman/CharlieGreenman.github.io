@@ -117,11 +117,11 @@
 	      _controlViewJs2["default"].redoGrid();
 	    });
 	    _elemJs2["default"].s.resetButton.addEventListener("click", _controlViewJs2["default"].resetButton, false);
-	    c.addEventListener("click", function () {
+	    c.addEventListener("click", function (e) {
 	      if (c.classList.contains("allow-handle-click")) {
-	        _gridJs2["default"].handleClick();
+	        _gridJs2["default"].handleClick(e);
 	        _whenClickedJs2["default"].addColors();
-	        _whenClickedJs2["default"].convertToArray();
+	        _whenClickedJs2["default"].convertToArray(e);
 	        //I would like the following code to be cleaner if possible
 	        if (_elemJs2["default"].el.codeBox.classList.contains("css_box")) {
 	          _whenClickedJs2["default"].convertToCss();
@@ -171,8 +171,8 @@
 	      _jsConversionJs2["default"].addColorMap();
 	      bitIllustrator.convertToJs();
 	    });
-	    window.addEventListener("keydown", function () {
-	      _controlViewJs2["default"].toggleView(event);
+	    window.addEventListener("keydown", function (e) {
+	      _controlViewJs2["default"].toggleView(e);
 	    });
 	  },
 	  updatedSettings: function updatedSettings() {
@@ -293,7 +293,7 @@
 	            for (var i = 0; i < _elemJs2["default"].s.rowCount; i++) {
 	                ctx.strokeStyle = "#3F3B3A";
 	                ctx.strokeRect(r * _elemJs2["default"].s.pixSize, i * _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize);
-	                ctx.fillStyle = "rgba(25, 25, 25, 1)";
+	                ctx.fillStyle = "rgba(25, 25, 25, 122)";
 	                ctx.fillRect(r * _elemJs2["default"].s.pixSize + 1, i * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	            }
 	        }
@@ -303,8 +303,8 @@
 	    // handleClick is still in prototyping phase
 	    handleClick: function handleClick(e) {
 	        e = e || window.event;
-	        var xVal = Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize;
-	        var yVal = Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize;
+	        var xVal = Math.floor(e.offsetX === undefined ? e.layerX : e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize;
+	        var yVal = Math.floor(e.offsetY === undefined ? e.layerY : e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize;
 	        ctx.fillStyle = _elemJs2["default"].el.hexColor.value;
 	        //get the color for the box clicked on
 	        var imgData = ctx.getImageData(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
@@ -326,6 +326,18 @@
 	        //accomodate for 2 px border
 	        //need to put in a variable down the line
 	        _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
+	    },
+
+	    updateGridColor: function updateGridColor() {
+
+	        for (var r = 0; r < _elemJs2["default"].s.columnCount; r++) {
+	            for (var i = 0; i < _elemJs2["default"].s.rowCount; i++) {
+	                ctx.strokeStyle = "#3F3B3A";
+	                ctx.strokeRect(r * _elemJs2["default"].s.pixSize, i * _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize);
+	                ctx.fillStyle = _elemJs2["default"].el.backgroundHexColor.value;
+	                ctx.fillRect(r * _elemJs2["default"].s.pixSize + 1, i * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
+	            }
+	        }
 	    }
 	};
 
@@ -500,7 +512,7 @@
 
 	        _elemJs2["default"].el.innerCodeBox.innerHTML = "$num: " + _elemJs2["default"].s.pixSize + ";<br>";
 	        for (var x = 0; x < _elemJs2["default"].s.storeColors.length; x++) {
-	            _elemJs2["default"].el.innerCodeBox.innerHTML += "$colors" + x + ": " + _elemJs2["default"].s.storeColors[x] + ";";
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "$colors-" + (x + 1) + ": " + _elemJs2["default"].s.storeColors[x] + "; ";
 	        }
 
 	        _elemJs2["default"].el.innerCodeBox.innerHTML += "<br>";
@@ -522,10 +534,9 @@
 	            _elemJs2["default"].el.innerCodeBox.innerHTML += " $X" + parseFloat(_elemJs2["default"].s.storeValues[x][0]) / _elemJs2["default"].s.pixSize;
 	            _elemJs2["default"].el.innerCodeBox.innerHTML += " $O" + parseFloat(_elemJs2["default"].s.storeValues[x][1]) / _elemJs2["default"].s.pixSize;
 	            //need to add support with name that color
-
 	            for (var y = 0; y < _elemJs2["default"].s.storeColors.length; y++) {
 	                if (_elemJs2["default"].s.storeValues[x][2] === _elemJs2["default"].s.storeColors[y]) {
-	                    _elemJs2["default"].el.innerCodeBox.innerHTML += " " + _elemJs2["default"].s.sassColorVariables[y];
+	                    _elemJs2["default"].el.innerCodeBox.innerHTML += " $colors-" + (_elemJs2["default"].s.storeColors.indexOf(_elemJs2["default"].s.storeValues[x][2]) + 1);
 	                }
 	            }
 	            if (x === _elemJs2["default"].s.storeValues.length - 1) {
@@ -546,7 +557,7 @@
 	        _elemJs2["default"].el.innerCodeBox.innerHTML = "@num:" + _elemJs2["default"].s.pixSize + ";<br>";
 
 	        for (var x = 0; x < _elemJs2["default"].s.storeColors.length; x++) {
-	            _elemJs2["default"].el.innerCodeBox.innerHTML += "@colors" + x + ": " + _elemJs2["default"].s.storeColors[x] + ";";
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += "@colors-" + (x + 1) + ": " + _elemJs2["default"].s.storeColors[x] + ";";
 	        }
 
 	        _elemJs2["default"].el.innerCodeBox.innerHTML += "<br>";
@@ -554,7 +565,6 @@
 	        for (var x = 0; x < _elemJs2["default"].s.columnCount; x++) {
 	            _elemJs2["default"].el.innerCodeBox.innerHTML += "@X" + x + ": @num*" + x + "px; ";
 	        }
-	        _elemJs2["default"].el.innerCodeBox.innerHTML += "$num: " + _elemJs2["default"].s.pixSize + ";<br>";
 	        for (var y = 0; y < _elemJs2["default"].s.columnCount; y++) {
 	            _elemJs2["default"].el.innerCodeBox.innerHTML += "@O" + y + ": @num*" + y + "px; ";
 	        }
@@ -563,17 +573,17 @@
 
 	    convertToLess: function convertToLess() {
 	        _elemJs2["default"].el.innerCodeBox.innerHTML += "box-shadow: ";
-	        for (var xyz = 0; xyz < _elemJs2["default"].s.storeValues.length; xyz++) {
-	            _elemJs2["default"].el.innerCodeBox.innerHTML += " @X" + parseFloat(_elemJs2["default"].s.storeValues[xyz][0]) / _elemJs2["default"].s.pixSize;
-	            _elemJs2["default"].el.innerCodeBox.innerHTML += " @O" + parseFloat(_elemJs2["default"].s.storeValues[xyz][1]) / _elemJs2["default"].s.pixSize;
+	        for (var x = 0; x < _elemJs2["default"].s.storeValues.length; x++) {
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += " @X" + parseFloat(_elemJs2["default"].s.storeValues[x][0]) / _elemJs2["default"].s.pixSize;
+	            _elemJs2["default"].el.innerCodeBox.innerHTML += " @O" + parseFloat(_elemJs2["default"].s.storeValues[x][1]) / _elemJs2["default"].s.pixSize;
 
-	            for (var avi = 0; avi < _elemJs2["default"].s.storeColors.length; avi++) {
-	                if (_elemJs2["default"].s.storeValues[xyz][2] === _elemJs2["default"].s.storeColors[avi]) {
-	                    _elemJs2["default"].el.innerCodeBox.innerHTML += " " + _elemJs2["default"].s.lessColorVariables[avi];
+	            for (var y = 0; y < _elemJs2["default"].s.storeColors.length; y++) {
+	                if (_elemJs2["default"].s.storeValues[x][2] === _elemJs2["default"].s.storeColors[y]) {
+	                    _elemJs2["default"].el.innerCodeBox.innerHTML += " @colors-" + (_elemJs2["default"].s.storeColors.indexOf(_elemJs2["default"].s.storeValues[x][2]) + 1);
 	                }
 	            }
 
-	            if (xyz === _elemJs2["default"].s.storeValues.length - 1) {
+	            if (x === _elemJs2["default"].s.storeValues.length - 1) {
 	                _elemJs2["default"].el.innerCodeBox.innerHTML += ";";
 	            } else {
 	                _elemJs2["default"].el.innerCodeBox.innerHTML += ",";
@@ -652,7 +662,7 @@
 	    },
 
 	    addColorMap: function addColorMap() {
-	        _elemJs2["default"].el.innerCodeBox.innerHTML += "var colors = [ \" \",";
+	        _elemJs2["default"].el.innerCodeBox.innerHTML += "var colors = [ new arrMap.Color(0,0,0, 0),";
 	        for (x = 0; x < _elemJs2["default"].s.storeColors.length; x++) {
 	            _elemJs2["default"].el.innerCodeBox.innerHTML += "new arrMap.Color(" + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).r + "," + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).g + "," + _utilsJs2["default"].hexToRgb(_elemJs2["default"].s.storeColors[x]).b + ", 1)";
 	            if (x === _elemJs2["default"].s.storeColors.length - 1) {
@@ -734,8 +744,8 @@
 	            _elemJs2["default"].s.resetButton.classList.add("warning");
 	        }
 	    },
-	    toggleView: function toggleView() {
-	        var x = event.keyCode;
+	    toggleView: function toggleView(e) {
+	        var x = e.keyCode;
 	        if (x === 71) {
 	            if (c.classList.contains("allow-handle-click")) {
 	                cntrlView.stopHandleClick();
@@ -774,6 +784,10 @@
 
 	var _utilsJs2 = _interopRequireDefault(_utilsJs);
 
+	var _gridJs = __webpack_require__(2);
+
+	var _gridJs2 = _interopRequireDefault(_gridJs);
+
 	var clrPckr = {
 	    pickHexColor: function pickHexColor() {
 	        var newHexValue = _elemJs2["default"].el.hexColor.value;
@@ -787,9 +801,12 @@
 	    },
 	    pickRgbColor: function pickRgbColor() {
 	        _elemJs2["default"].el.hexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.pixRed.value), parseFloat(_elemJs2["default"].el.pixGreen.value), parseFloat(_elemJs2["default"].el.pixBlue.value));
+
 	        _elemJs2["default"].el.colorBar.style.background = _elemJs2["default"].el.hexColor.value;
+	        _elemJs2["default"].el.headerContainer.style.boxShadow = '0 0 0 10px ' + _elemJs2["default"].el.hexColor.value + ' inset';
 	    },
 	    pickBackgroundHexColor: function pickBackgroundHexColor() {
+	        _gridJs2["default"].updateGridColor();
 	        var newHexValue = _elemJs2["default"].el.backgroundHexColor.value;
 
 	        document.body.style.background = newHexValue;
@@ -800,6 +817,7 @@
 	        _elemJs2["default"].el.backgroundBlue.value = _utilsJs2["default"].hexToRgb(newHexValue).b;
 	    },
 	    pickBackgroundRgbColor: function pickBackgroundRgbColor() {
+	        _gridJs2["default"].updateGridColor();
 	        _elemJs2["default"].el.backgroundHexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.backgroundRed.value), parseFloat(_elemJs2["default"].el.backgroundGreen.value), parseFloat(_elemJs2["default"].el.backgroundBlue.value));
 	        _elemJs2["default"].el.backgroundColorBar.style.background = _elemJs2["default"].el.backgroundHexColor.value;
 	        document.body.style.background = _elemJs2["default"].el.backgroundHexColor.value;

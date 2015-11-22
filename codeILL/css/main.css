@@ -6578,6 +6578,9 @@ html, body {
   overflow: hidden;
   background: #191919; }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #666666; }
+
 /*
 ####################
 ##### Layouts ###### // major layout styles in your stylesheet
@@ -6645,7 +6648,7 @@ textarea:focus, input:focus {
     margin: 0;
     box-shadow: none;
     color: white;
-    text-align: left; }
+    text-align: center; }
 
 .color-button-styling {
   width: 88%;
@@ -6819,14 +6822,20 @@ pre {
 #js_toggle {
   background: #F0DB4F; }
 
-#rgb .column:nth-child(1) label, #rgb-background .column:nth-child(1) label {
+#rgb .column:nth-child(1) label, #rgb .column:nth-child(1) input, #rgb-background .column:nth-child(1) label, #rgb-background .column:nth-child(1) input {
   color: red; }
 
-#rgb .column:nth-child(2) label, #rgb-background .column:nth-child(2) label {
+#rgb .column:nth-child(2) label, #rgb .column:nth-child(2) input, #rgb-background .column:nth-child(2) label, #rgb-background .column:nth-child(2) input {
   color: green; }
 
-#rgb .column:nth-child(3) label, #rgb-background .column:nth-child(3) label {
+#rgb .column:nth-child(3) label, #rgb .column input, #rgb-background .column:nth-child(3) label, #rgb-background .column input {
   color: blue; }
+
+#background-hex-color h3 {
+  letter-spacing: 0.03rem; }
+
+#color-picker h3 {
+  letter-spacing: 0.43rem; }
 
 .letter {
   border-radius: 50%;

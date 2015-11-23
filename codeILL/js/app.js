@@ -62,23 +62,23 @@
 
 	var _gridJs2 = _interopRequireDefault(_gridJs);
 
-	var _whenClickedJs = __webpack_require__(4);
+	var _whenClickedJs = __webpack_require__(5);
 
 	var _whenClickedJs2 = _interopRequireDefault(_whenClickedJs);
 
-	var _conversionJs = __webpack_require__(5);
+	var _conversionJs = __webpack_require__(6);
 
 	var _conversionJs2 = _interopRequireDefault(_conversionJs);
 
-	var _jsConversionJs = __webpack_require__(6);
+	var _jsConversionJs = __webpack_require__(7);
 
 	var _jsConversionJs2 = _interopRequireDefault(_jsConversionJs);
 
-	var _controlViewJs = __webpack_require__(7);
+	var _controlViewJs = __webpack_require__(8);
 
 	var _controlViewJs2 = _interopRequireDefault(_controlViewJs);
 
-	var _colorPickerJs = __webpack_require__(8);
+	var _colorPickerJs = __webpack_require__(4);
 
 	var _colorPickerJs2 = _interopRequireDefault(_colorPickerJs);
 
@@ -153,6 +153,7 @@
 	    });
 	    _elemJs2["default"].el.backgroundHexColor.addEventListener("input", function () {
 	      _colorPickerJs2["default"].pickBackgroundHexColor();
+	      _gridJs2["default"].updateGridColor();
 	    });
 	    _elemJs2["default"].el.hexColor.addEventListener("input", function () {
 	      _colorPickerJs2["default"].pickHexColor();
@@ -162,7 +163,10 @@
 	      _elemJs2["default"].el.rgb[i].addEventListener("input", _colorPickerJs2["default"].pickRgbColor, false);
 	    }
 	    for (var i = 0; i < 3; i++) {
-	      _elemJs2["default"].el.backgroundRgb[i].addEventListener("input", _colorPickerJs2["default"].pickBackgroundRgbColor, false);
+	      _elemJs2["default"].el.backgroundRgb[i].addEventListener("input", function () {
+	        _colorPickerJs2["default"].pickBackgroundRgbColor();
+	        _gridJs2["default"].updateGridColor();
+	      });
 	    }
 	    _elemJs2["default"].el.jsToggle.addEventListener("click", function () {
 	      _jsConversionJs2["default"].addEmptyArrayMap();
@@ -274,6 +278,10 @@
 
 	var _elemJs2 = _interopRequireDefault(_elemJs);
 
+	var _colorPickerJs = __webpack_require__(4);
+
+	var _colorPickerJs2 = _interopRequireDefault(_colorPickerJs);
+
 	var s,
 	    x,
 	    y,
@@ -302,6 +310,8 @@
 	    //allow individual boxes to be clicked
 	    // handleClick is still in prototyping phase
 	    handleClick: function handleClick(e) {
+	        _colorPickerJs2["default"].pickBackgroundHexColor();
+
 	        e = e || window.event;
 	        var xVal = Math.floor(e.offsetX === undefined ? e.layerX : e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize;
 	        var yVal = Math.floor(e.offsetY === undefined ? e.layerY : e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize;
@@ -310,8 +320,10 @@
 	        var imgData = ctx.getImageData(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	        //if it is the background grey/gray remove it
 	        //currently does not work with color change
-	        if (imgData.data[0] !== 25 && imgData.data[1] !== 25 && imgData.data[2] !== 25) {
-	            ctx.fillStyle = "rgba(25, 25, 25, 1)";
+	        console.log(imgData);
+	        console.log(_elemJs2["default"].el.backgroundRed.value + " " + _elemJs2["default"].el.backgroundGreen.value + " " + _elemJs2["default"].el.backgroundBlue.value);
+	        if (imgData.data[0] !== parseFloat(_elemJs2["default"].el.backgroundRed.value) && imgData.data[1] !== parseFloat(_elemJs2["default"].el.backgroundGreen.value) && imgData.data[2] !== parseFloat(_elemJs2["default"].el.backgroundBlue.value)) {
+	            ctx.fillStyle = "rgba(" + _elemJs2["default"].el.backgroundRed.value + ", " + _elemJs2["default"].el.backgroundGreen.value + ", " + _elemJs2["default"].el.backgroundBlue.value + ", 1)";
 	            ctx.clearRect(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	            ctx.fillRect(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1,
 	            //accomodate for 2 px border
@@ -422,6 +434,69 @@
 
 	var _utilsJs2 = _interopRequireDefault(_utilsJs);
 
+	var _gridJs = __webpack_require__(2);
+
+	var _gridJs2 = _interopRequireDefault(_gridJs);
+
+	var clrPckr = {
+	    pickHexColor: function pickHexColor() {
+	        var newHexValue = _elemJs2["default"].el.hexColor.value;
+
+	        _elemJs2["default"].el.colorBar.style.background = newHexValue;
+	        _elemJs2["default"].el.headerContainer.style.boxShadow = '0 0 0 10px ' + newHexValue + ' inset';
+
+	        _elemJs2["default"].el.pixRed.value = _utilsJs2["default"].hexToRgb(newHexValue).r;
+	        _elemJs2["default"].el.pixGreen.value = _utilsJs2["default"].hexToRgb(newHexValue).g;
+	        _elemJs2["default"].el.pixBlue.value = _utilsJs2["default"].hexToRgb(newHexValue).b;
+	    },
+	    pickRgbColor: function pickRgbColor() {
+	        _elemJs2["default"].el.hexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.pixRed.value), parseFloat(_elemJs2["default"].el.pixGreen.value), parseFloat(_elemJs2["default"].el.pixBlue.value));
+
+	        _elemJs2["default"].el.colorBar.style.background = _elemJs2["default"].el.hexColor.value;
+	        _elemJs2["default"].el.headerContainer.style.boxShadow = '0 0 0 10px ' + _elemJs2["default"].el.hexColor.value + ' inset';
+	    },
+	    pickBackgroundHexColor: function pickBackgroundHexColor() {
+	        var newHexValue = _elemJs2["default"].el.backgroundHexColor.value;
+
+	        document.body.style.background = newHexValue;
+	        //elem.el.headerContainer.style.boxShadow = '0 0 0 10px ' + newHexValue +  ' inset';
+
+	        _elemJs2["default"].el.backgroundRed.value = _utilsJs2["default"].hexToRgb(newHexValue).r;
+	        _elemJs2["default"].el.backgroundGreen.value = _utilsJs2["default"].hexToRgb(newHexValue).g;
+	        _elemJs2["default"].el.backgroundBlue.value = _utilsJs2["default"].hexToRgb(newHexValue).b;
+	        //grid.updateGridColor() needs to be at the end of pickBackgroundHexColor so that it picks up new value
+	    },
+	    pickBackgroundRgbColor: function pickBackgroundRgbColor() {
+	        _elemJs2["default"].el.backgroundHexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.backgroundRed.value), parseFloat(_elemJs2["default"].el.backgroundGreen.value), parseFloat(_elemJs2["default"].el.backgroundBlue.value));
+	        _elemJs2["default"].el.backgroundColorBar.style.background = _elemJs2["default"].el.backgroundHexColor.value;
+	        document.body.style.background = _elemJs2["default"].el.backgroundHexColor.value;
+	        //grid.updateGridColor() needs to be at the end of pickBackgroundRgbColor function so that it picks up new value
+	    }
+	};
+
+	exports["default"] = clrPckr;
+	module.exports = exports["default"];
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _elemJs = __webpack_require__(3);
+
+	var _elemJs2 = _interopRequireDefault(_elemJs);
+
+	var _utilsJs = __webpack_require__(1);
+
+	var _utilsJs2 = _interopRequireDefault(_utilsJs);
+
 	var hndClck = {
 	    //create a color array for sass variables
 	    // in order to enable color1, color2, etc...
@@ -487,7 +562,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -596,7 +671,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -680,7 +755,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -762,69 +837,6 @@
 	};
 
 	exports["default"] = cntrlView;
-	module.exports = exports["default"];
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _elemJs = __webpack_require__(3);
-
-	var _elemJs2 = _interopRequireDefault(_elemJs);
-
-	var _utilsJs = __webpack_require__(1);
-
-	var _utilsJs2 = _interopRequireDefault(_utilsJs);
-
-	var _gridJs = __webpack_require__(2);
-
-	var _gridJs2 = _interopRequireDefault(_gridJs);
-
-	var clrPckr = {
-	    pickHexColor: function pickHexColor() {
-	        var newHexValue = _elemJs2["default"].el.hexColor.value;
-
-	        _elemJs2["default"].el.colorBar.style.background = newHexValue;
-	        _elemJs2["default"].el.headerContainer.style.boxShadow = '0 0 0 10px ' + newHexValue + ' inset';
-
-	        _elemJs2["default"].el.pixRed.value = _utilsJs2["default"].hexToRgb(newHexValue).r;
-	        _elemJs2["default"].el.pixGreen.value = _utilsJs2["default"].hexToRgb(newHexValue).g;
-	        _elemJs2["default"].el.pixBlue.value = _utilsJs2["default"].hexToRgb(newHexValue).b;
-	    },
-	    pickRgbColor: function pickRgbColor() {
-	        _elemJs2["default"].el.hexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.pixRed.value), parseFloat(_elemJs2["default"].el.pixGreen.value), parseFloat(_elemJs2["default"].el.pixBlue.value));
-
-	        _elemJs2["default"].el.colorBar.style.background = _elemJs2["default"].el.hexColor.value;
-	        _elemJs2["default"].el.headerContainer.style.boxShadow = '0 0 0 10px ' + _elemJs2["default"].el.hexColor.value + ' inset';
-	    },
-	    pickBackgroundHexColor: function pickBackgroundHexColor() {
-	        _gridJs2["default"].updateGridColor();
-	        var newHexValue = _elemJs2["default"].el.backgroundHexColor.value;
-
-	        document.body.style.background = newHexValue;
-	        //elem.el.headerContainer.style.boxShadow = '0 0 0 10px ' + newHexValue +  ' inset';
-
-	        _elemJs2["default"].el.backgroundRed.value = _utilsJs2["default"].hexToRgb(newHexValue).r;
-	        _elemJs2["default"].el.backgroundGreen.value = _utilsJs2["default"].hexToRgb(newHexValue).g;
-	        _elemJs2["default"].el.backgroundBlue.value = _utilsJs2["default"].hexToRgb(newHexValue).b;
-	    },
-	    pickBackgroundRgbColor: function pickBackgroundRgbColor() {
-	        _gridJs2["default"].updateGridColor();
-	        _elemJs2["default"].el.backgroundHexColor.value = _utilsJs2["default"].rgbToHex(parseFloat(_elemJs2["default"].el.backgroundRed.value), parseFloat(_elemJs2["default"].el.backgroundGreen.value), parseFloat(_elemJs2["default"].el.backgroundBlue.value));
-	        _elemJs2["default"].el.backgroundColorBar.style.background = _elemJs2["default"].el.backgroundHexColor.value;
-	        document.body.style.background = _elemJs2["default"].el.backgroundHexColor.value;
-	    }
-	};
-
-	exports["default"] = clrPckr;
 	module.exports = exports["default"];
 
 /***/ }

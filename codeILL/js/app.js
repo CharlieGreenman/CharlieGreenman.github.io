@@ -299,9 +299,9 @@
 
 	        for (var r = 0; r < _elemJs2["default"].s.columnCount; r++) {
 	            for (var i = 0; i < _elemJs2["default"].s.rowCount; i++) {
-	                ctx.strokeStyle = "#3F3B3A";
+	                ctx.strokeStyle = "#262626";
 	                ctx.strokeRect(r * _elemJs2["default"].s.pixSize, i * _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize);
-	                ctx.fillStyle = "rgba(25, 25, 25, 122)";
+	                ctx.fillStyle = _elemJs2["default"].el.backgroundHexColor.value;
 	                ctx.fillRect(r * _elemJs2["default"].s.pixSize + 1, i * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	            }
 	        }
@@ -320,8 +320,6 @@
 	        var imgData = ctx.getImageData(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	        //if it is the background grey/gray remove it
 	        //currently does not work with color change
-	        console.log(imgData);
-	        console.log(_elemJs2["default"].el.backgroundRed.value + " " + _elemJs2["default"].el.backgroundGreen.value + " " + _elemJs2["default"].el.backgroundBlue.value);
 	        if (imgData.data[0] !== parseFloat(_elemJs2["default"].el.backgroundRed.value) && imgData.data[1] !== parseFloat(_elemJs2["default"].el.backgroundGreen.value) && imgData.data[2] !== parseFloat(_elemJs2["default"].el.backgroundBlue.value)) {
 	            ctx.fillStyle = "rgba(" + _elemJs2["default"].el.backgroundRed.value + ", " + _elemJs2["default"].el.backgroundGreen.value + ", " + _elemJs2["default"].el.backgroundBlue.value + ", 1)";
 	            ctx.clearRect(Math.floor(e.offsetX / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, Math.floor(e.offsetY / _elemJs2["default"].s.pixSize) * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
@@ -341,14 +339,18 @@
 	    },
 
 	    updateGridColor: function updateGridColor() {
-
-	        for (var r = 0; r < _elemJs2["default"].s.columnCount; r++) {
-	            for (var i = 0; i < _elemJs2["default"].s.rowCount; i++) {
-	                ctx.strokeStyle = "#3F3B3A";
-	                ctx.strokeRect(r * _elemJs2["default"].s.pixSize, i * _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize);
+	        for (var _x = 0; _x < _elemJs2["default"].s.columnCount; _x++) {
+	            for (var _y = 0; _y < _elemJs2["default"].s.rowCount; _y++) {
+	                ctx.strokeStyle = _elemJs2["default"].el.backgroundRed.value + 44 + ". " + (_elemJs2["default"].el.backgroundGreen.value + 44) + ". " + (_elemJs2["default"].el.backgroundBlue.value + 44);
+	                ctx.strokeRect(_x * _elemJs2["default"].s.pixSize, _y * _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize, _elemJs2["default"].s.pixSize);
 	                ctx.fillStyle = _elemJs2["default"].el.backgroundHexColor.value;
-	                ctx.fillRect(r * _elemJs2["default"].s.pixSize + 1, i * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
+	                ctx.fillRect(_x * _elemJs2["default"].s.pixSize + 1, _y * _elemJs2["default"].s.pixSize + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	            }
+	        }
+
+	        for (var _x2 = 0; _x2 < _elemJs2["default"].s.storeValues.length; _x2++) {
+	            ctx.fillStyle = _elemJs2["default"].s.storeValues[_x2][2];
+	            ctx.fillRect(parseFloat(_elemJs2["default"].s.storeValues[_x2][0]) + 1, parseFloat(_elemJs2["default"].s.storeValues[_x2][1]) + 1, _elemJs2["default"].s.pixSize - 2, _elemJs2["default"].s.pixSize - 2);
 	        }
 	    }
 	};
